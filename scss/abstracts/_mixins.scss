@@ -1,0 +1,14 @@
+%flex {
+  display: flex;
+  align-items: center;
+}
+
+@mixin flexBetween {
+  @extend %flex;
+  justify-content: space-between;
+}
+
+@mixin flexColumn {
+  @extend %flex;
+  flex-direction: column;
+}

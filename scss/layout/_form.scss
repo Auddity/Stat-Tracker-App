@@ -1,0 +1,27 @@
+@use '../abstracts/mixins' as mx;
+
+.form-container {
+  .form {
+    
+    .form-control {
+      width: 100%;
+      @include mx.flexColumn;
+      text-align: left;
+      margin-block: 2rem;
+
+      p {
+        margin-block-end: 1rem;
+      }
+
+      input {
+        padding: .4rem;
+      }
+
+      &.btn-container {
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-around;
+      }
+    }
+  }
+}

@@ -1,0 +1,27 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  font-size: 10px;
+}
+
+body {
+  font-size: 1.6rem;
+  background-color: #333;
+  color: #fefefe;
+}
+
+input {
+  display: inline-block;
+  border-radius: .5rem;
+  width: 80%;
+  max-width: 33rem;
+}
+
+.container {
+  width: 70%;
+  margin-inline: auto;
+}

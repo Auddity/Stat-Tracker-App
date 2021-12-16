@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/main.min.css">
+  <title>Team Stat Tracker</title>
+</head>
+<body>
+  <header class="container title capitalize">
+    <h1>team stat tracker</h1>
+    <h2>football</h2>
+  </header>
+  <!-- input -->
+  <section class="form-container container capitalize" aria-label="Enter player data">
+    <form class="form" id="form">
+      <label for="player-name" class="form-control">
+        <p>enter players name</p>
+        <input type="text" id="player-name">
+      </label>
+      <!-- <label for="pos" class="form-control">
+        <p>select players position</p>
+        <input list="positions" id="pos">
+        <datalist id="positions">
+          <option value="quarter back">
+          <option value="running back">
+          <option value="wide receiver">
+          <option value="tight end">
+          <option value="defensive end">
+          <option value="defensive tackle">
+          <option value="line backer">
+          <option value="corner back">
+          <option value="safety">
+        </datalist>
+      </label> -->
+      <!-- <label for="stat" class="form-control">
+        <p>select stat unit</p>
+        <input list="stat" id="stat-unit">
+        <datalist id="stat">
+          <option value="rushing yards">
+          <option value="receiving yards"">
+          <option value="sacks">
+          <option value="interceptions">
+        </datalist>
+      </label> -->
+      <label for="stat-value" class="form-control">
+        <p>enter stat value</p>
+        <input type="number" id="stat-value">
+      </label>
+      <div class="form-control btn-container">
+        <button 
+          type="submit" 
+          class="capitalize submit-btn" 
+          id="submit-btn">
+            submit
+          </button>
+        <button 
+          type="reset" 
+          class="capitalize clear-btn" 
+          id="clear-btn">
+            clear all stats
+          </button>
+      </div>
+    </form>
+  </section>
+  <!-- display -->
+  <section class="display container capitalize" id="display">
+    <div class="catagory" id="rushing">
+      <header class="catagory-header">
+        <h2>rushing leaders</h2>
+      </header>
+
+        <!-- Populated with JS --> 
+        
+    </div>
+
+    <!-- <div class="catagory" id="receiving">
+      <header class="catagory-header">
+        <h2>receiving leaders</h2>
+      </header>
+
+      
+    </div>
+
+    <div class="catagory" id="sacks">
+      <header class="catagory-header">
+        <h2>sack leaders</h2>
+      </header>
+
+      
+    </div>
+
+    <div class="catagory" id="ints">
+      <header class="catagory-header">
+        <h2>interception leaders</h2>
+      </header>
+
+      
+    </div> -->
+  </section>
+
+  <script src="app.js"></script>
+</body>
+</html>

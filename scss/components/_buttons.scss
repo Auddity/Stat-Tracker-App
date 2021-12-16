@@ -1,0 +1,18 @@
+@use '../abstracts/variables' as v;
+
+button {
+  padding: .9rem;
+  color: #fefefe;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+
+  &.submit-btn {
+    padding-inline: 5rem;
+    background-color: v.$green-safe;
+  }
+
+  &.clear-btn {
+    background-color: v.$red-danger;
+  }
+}

@@ -1,0 +1,31 @@
+@use '../abstracts/mixins' as mx;
+
+.display {
+  margin-block-start: 4.5rem;
+
+  .catagory {
+    padding: 2rem 2rem;
+    border: 1px solid #333;
+    border-radius: .5rem;
+    margin-block-end: 2rem;
+
+    &-header {
+      padding-block-end: 1rem;
+      text-align: center;
+    }
+  }
+  
+  .player-container {
+    @include mx.flexBetween;
+    margin-block: .5rem;
+    background: red;
+
+    span {
+      margin-inline-start: .5rem;
+
+      &.pos {
+        font-size: 1.3rem;
+      }
+    }
+  }
+}
