@@ -1,5 +1,7 @@
 # Stat Tracker App
 
+update --12/16/21
+
 This is a current **work in progress**.
 
 ## App Function
@@ -11,8 +13,14 @@ The purpose in building this app is for me to work with vanilla Javascript.  Foc
 ## Current Status
 Most simple UI, two values entered.  Submiting, storing, and displaying.  
 
-Working on logic to determine which behavior the app takes: adding a new player, or updating an existing one.
-(I'm trying to do this without an edit button)
+- Can input a new name and have it added to DOM & Storage
+
+- Can input a name already existing and update DOM & Storage
+
+### Next Steps
+Add position and stat-type (ex: yds) to input
+Have position and stat-type displayed
+Add receiving and defensive catagories.
 
 ## Future Design Goals
 Currently I'm working only in football statistics.  Future features will include more sports: Basketball, Baseball, Golf.

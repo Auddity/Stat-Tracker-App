@@ -32,17 +32,15 @@ class UI {
     `;
     rushingContainer.appendChild(playerContainer);
     playerContainer.innerHTML = dataDisplay;
-    const nameEl = document.querySelector('.player');
     const attr = document.createAttribute('data-id');
     attr.value = name;
-    nameEl.setAttributeNode(attr);
-
-    Store.addPlayerData(player);
-  }  
+    playerContainer.setAttributeNode(attr);
+  }
 
   clearInputFields() {
     nameInput.value = '';
     valueInput.value = '';
+    nameInput.focus();
   }  
 };
 
@@ -55,13 +53,13 @@ class Store {
 
   static addPlayerData(player) {
     const playerData = { name:player.name, value:+player.value };
-    let players = this.getPlayerData();
+    let players = Store.getPlayerData();
     players.push(playerData);
     localStorage.setItem('players', JSON.stringify(players));
   };
 
   static updatePlayerData(player) {
-    let players = this.getPlayerData();
+    let players = Store.getPlayerData();
     let result = players.find(({ name }) => name === player.name);
     players = players.map(object => {
       if(object.name === result.name) object.value = +object.value + +player.value;
@@ -71,16 +69,22 @@ class Store {
   }
 
   static displayStoredData() {
-    let players = this.getPlayerData();
+    const players = Store.getPlayerData();
     players.forEach(player => {
       const ui = new UI;
       ui.addPlayerToDOM(player);
     });
+  };
+
+  static checkForStoredName(player) {
+    const players = Store.getPlayerData();
+    return players.find(({ name }) => name === player.name);
   }
 
   static deletePlayerData() {
+    const ui = new UI;
     localStorage.clear();
-    location.reload();
+    ui.clearDisplay();
   }
 };
 
@@ -93,14 +97,21 @@ getElement('form').addEventListener('submit', e => {
   const player = new Player(name, value);
   const ui = new UI;
 
-  // TODO: At some point functionality will need to decide what ot do here
+  let nameCheck = Store.checkForStoredName(player);
+  if(name === '' || value === '') {
+    alert('Enter all values');
+  } else if(nameCheck === undefined) {
+    ui.addPlayerToDOM(player);
+    Store.addPlayerData(player);
+  } else {
+    Store.updatePlayerData(player);
+    location.reload();
+  }
 
   ui.clearInputFields();
-  nameInput.focus(); 
+  console.log(nameCheck)
 });
 
-// document.addEventListener('DOMContentLoaded', Store.displayStoredData());
+document.addEventListener('DOMContentLoaded', Store.displayStoredData);
 
 getElement('clear-btn').addEventListener('click', () => Store.deletePlayerData());
-
-console.log(editFlag);
