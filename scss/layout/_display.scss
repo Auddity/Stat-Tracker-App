@@ -17,6 +17,8 @@
   
   .player-container {
     @include mx.flexBetween;
+    width: min(100%, 775px);
+    margin-inline: auto;
     margin-block: .5rem;
     background: red;
 

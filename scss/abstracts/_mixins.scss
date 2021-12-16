@@ -12,3 +12,7 @@
   @extend %flex;
   flex-direction: column;
 }
+
+@mixin mq($size) {
+  @content;
+}

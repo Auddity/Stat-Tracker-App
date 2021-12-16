@@ -1,8 +1,9 @@
 # Stat Tracker App
 
-update --12/16/21
-
 This is a current **work in progress**.
+
+update --12/16/21
+[Working Page](https://stat-tracker-app.vercel.app/)
 
 ## App Function
 Input a players name, position, stat-value, and stat type.  Then display it on screen sorted in order of stat leaders.

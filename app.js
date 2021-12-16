@@ -84,7 +84,7 @@ class Store {
   static deletePlayerData() {
     const ui = new UI;
     localStorage.clear();
-    ui.clearDisplay();
+    location.reload();
   }
 };
 
@@ -109,7 +109,6 @@ getElement('form').addEventListener('submit', e => {
   }
 
   ui.clearInputFields();
-  console.log(nameCheck)
 });
 
 document.addEventListener('DOMContentLoaded', Store.displayStoredData);
