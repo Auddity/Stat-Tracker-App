@@ -6,19 +6,21 @@ const getElement = selector => {
 
 const nameInput = getElement('player-name');
 const valueInput = getElement('stat-value');
+const posInput = getElement('positions');
 const rushingContainer = getElement('rushing');
 
+
 class Player {
-  constructor(name, value) {
+  constructor(name, pos, value) {
     this.name = name;
+    this.pos = pos;
     this.value = value;
   };
 };
 
 class UI {
   addPlayerToDOM(player) {
-    const { name, value } = player;
-    
+    const { name, pos, value } = player;
     const playerContainer = document.createElement('div');
     playerContainer.classList.add('player-container');
     const dataDisplay = `
@@ -40,6 +42,8 @@ class UI {
   clearInputFields() {
     nameInput.value = '';
     valueInput.value = '';
+    //TODO: reset pos value
+    posInput.value.default();
     nameInput.focus();
   }  
 };
@@ -82,19 +86,27 @@ class Store {
   }
 
   static deletePlayerData() {
-    const ui = new UI;
     localStorage.clear();
     location.reload();
   }
 };
+
+console.log(posInput.options);
+// for(let i of posInput.options) {
+//   console.log(i.getAttribute('data-short'));
+// }
+
 
 // Event Listeners
 getElement('form').addEventListener('submit', e => {
   e.preventDefault();
   const name = nameInput.value,
         value = valueInput.value;
+        // pos = posInput
 
-  const player = new Player(name, value);
+// TODO: acquire data-* & value
+  // console.log(posInput[selectedIndex]);
+  const player = new Player(name, pos, value);
   const ui = new UI;
 
   let nameCheck = Store.checkForStoredName(player);

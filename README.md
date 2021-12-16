@@ -13,10 +13,10 @@ The purpose in building this app is for me to work with vanilla Javascript.  Foc
 
 ## Current Status
 Most simple UI, two values entered.  Submiting, storing, and displaying.  
-
 - Can input a new name and have it added to DOM & Storage
-
 - Can input a name already existing and update DOM & Storage
+
+**Working** on adding position stat.
 
 ### Next Steps
 Add position and stat-type (ex: yds) to input
