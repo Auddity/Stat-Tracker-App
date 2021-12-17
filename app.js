@@ -37,14 +37,14 @@ class UI {
     const attr = document.createAttribute('data-id');
     attr.value = name;
     playerContainer.setAttributeNode(attr);
-  }
+  };
 
   clearInputFields() {
     nameInput.value = '';
     valueInput.value = '';
     
     nameInput.focus();
-  }  
+  };  
 };
 
 class Store {
@@ -69,7 +69,7 @@ class Store {
       return object;
     });
     localStorage.setItem('players', JSON.stringify(players));
-  }
+  };
 
   static displayStoredData() {
     const players = Store.getPlayerData();
@@ -82,12 +82,12 @@ class Store {
   static checkForStoredName(player) {
     const players = Store.getPlayerData();
     return players.find(({ name }) => name === player.name);
-  }
+  };
 
   static deletePlayerData() {
     localStorage.clear();
     location.reload();
-  }
+  };
 };
 
 // Event Listeners
@@ -109,7 +109,7 @@ getElement('form').addEventListener('submit', e => {
   } else {
     Store.updatePlayerData(player);
     location.reload();
-  }
+  };
 
   ui.clearInputFields();
 });
