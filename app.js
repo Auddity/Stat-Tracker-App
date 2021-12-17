@@ -6,9 +6,8 @@ const getElement = selector => {
 
 const nameInput = getElement('player-name');
 const valueInput = getElement('stat-value');
-const posInput = getElement('positions');
+const posSelect = getElement('positions');
 const rushingContainer = getElement('rushing');
-
 
 class Player {
   constructor(name, pos, value) {
@@ -21,11 +20,12 @@ class Player {
 class UI {
   addPlayerToDOM(player) {
     const { name, pos, value } = player;
+
     const playerContainer = document.createElement('div');
     playerContainer.classList.add('player-container');
     const dataDisplay = `
       <p class="player">${name}
-        <span class"pos capitalize">${undefined}</span>
+        <span class="pos uppercase">${pos}</span>
       </p>
       <p class="stat">
         <span class="value">${value}</span>
@@ -42,8 +42,7 @@ class UI {
   clearInputFields() {
     nameInput.value = '';
     valueInput.value = '';
-    //TODO: reset pos value
-    posInput.value.default();
+    
     nameInput.focus();
   }  
 };
@@ -56,7 +55,7 @@ class Store {
   };
 
   static addPlayerData(player) {
-    const playerData = { name:player.name, value:+player.value };
+    const playerData = { name:player.name, pos:player.pos, value:+player.value };
     let players = Store.getPlayerData();
     players.push(playerData);
     localStorage.setItem('players', JSON.stringify(players));
@@ -91,24 +90,16 @@ class Store {
   }
 };
 
-console.log(posInput.options);
-// for(let i of posInput.options) {
-//   console.log(i.getAttribute('data-short'));
-// }
-
-
 // Event Listeners
 getElement('form').addEventListener('submit', e => {
   e.preventDefault();
   const name = nameInput.value,
-        value = valueInput.value;
-        // pos = posInput
-
-// TODO: acquire data-* & value
-  // console.log(posInput[selectedIndex]);
+        value = valueInput.value,
+        pos = posSelect.options.item([posSelect.selectedIndex]).getAttribute('data-short');
+  
   const player = new Player(name, pos, value);
   const ui = new UI;
-
+        
   let nameCheck = Store.checkForStoredName(player);
   if(name === '' || value === '') {
     alert('Enter all values');

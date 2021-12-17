@@ -19,10 +19,10 @@
         <p>enter players name</p>
         <input type="text" id="player-name">
       </label>
-      <label for="pos" class="form-control">
+      <label for="positions" class="form-control">
         <p>select players position</p>
-        <input list="positions" id="pos">
-        <datalist id="positions">
+        
+        <select id="positions">
           <option 
             value="Quarter Back" 
             data-short="qb">
@@ -54,9 +54,9 @@
               Defensive Tackle
           </option>
           <option 
-            value="Line Backer" 
+            value="Linebacker" 
             data-short="lb">
-              Line Backer
+              Linebacker
           </option>
           <option 
             value="Corner Back" 
@@ -68,7 +68,7 @@
             data-short="s">
               Safety
           </option>
-        </datalist>
+        </select>
       </label>
       <!-- <label for="stat" class="form-control">
         <p>select stat unit</p>
