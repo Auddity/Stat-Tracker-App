@@ -2,7 +2,7 @@
 
 This is a current **work in progress**.
 
-update --12/17/21
+update --12/18/21 12:13pm
 [Working Page](https://stat-tracker-app.vercel.app/)
 
 ## App Function
@@ -13,28 +13,22 @@ The purpose in building this app is for me to work with vanilla Javascript.  Foc
 
 ## Current Status
 Most simple UI, three values can be entered.
-It can submit, store, and display.  
-- Can input a new name and have it added to DOM & Storage
-- Can input a name already existing and update DOM & Storage (no edit button)
+It can submit, store, and display.  - Input a new name and have it added to DOM & Storage & Displayed in the correct catagory.
+Can input a name already existing and update DOM & Storage (no edit button)
 
-- Can now add a position
+- Adding a position & stat type
   - Production Note (Principle 2 invoked): Had to drop `datalist` element.  Couln't get JS functionality working.  I also learned it doesn't work in Safari.
   - Replaced it with a `select` element.  It makes The JS code easier and cleaner.
 
 ### Next Steps
-Add stat value-type option (ex: yds, sacks, etc)
-Add receiving and defensive catagories.
+- Sorting displayed players in correct order of highest to lowest stat value
 
 ## Future Function & Design Goals
 Currently I'm working only in football statistics.  Future features will include more sports: Basketball, Baseball, Golf.
 
 If wrong position is entered, edit individual player item, or overwrite upon next stat update?
 
-Sorting functionality
-
 General editing functions
-
-Once funcionality is resolved, more stat types will be added.
 
 Make it look appealing.
 
