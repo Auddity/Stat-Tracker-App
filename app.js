@@ -7,19 +7,21 @@ const getElement = selector => {
 const nameInput = getElement('player-name');
 const valueInput = getElement('stat-value');
 const posSelect = getElement('positions');
+const statSelect = getElement('stat');
 const rushingContainer = getElement('rushing');
 
 class Player {
-  constructor(name, pos, value) {
+  constructor(name, pos, value, stat) {
     this.name = name;
     this.pos = pos;
     this.value = value;
+    this.stat = stat;
   };
 };
 
 class UI {
   addPlayerToDOM(player) {
-    const { name, pos, value } = player;
+    const { name, pos, value, stat } = player;
 
     const playerContainer = document.createElement('div');
     playerContainer.classList.add('player-container');
@@ -29,7 +31,7 @@ class UI {
       </p>
       <p class="stat">
         <span class="value">${value}</span>
-        <span class="unit">${undefined}</span>
+        <span class="unit">${stat}</span>
       </p>
     `;
     rushingContainer.appendChild(playerContainer);
@@ -55,7 +57,7 @@ class Store {
   };
 
   static addPlayerData(player) {
-    const playerData = { name:player.name, pos:player.pos, value:+player.value };
+    const playerData = { name:player.name, pos:player.pos, value:+player.value, stat:player.stat };
     let players = Store.getPlayerData();
     players.push(playerData);
     localStorage.setItem('players', JSON.stringify(players));
@@ -95,9 +97,10 @@ getElement('form').addEventListener('submit', e => {
   e.preventDefault();
   const name = nameInput.value,
         value = valueInput.value,
-        pos = posSelect.options.item([posSelect.selectedIndex]).getAttribute('data-short');
+        pos = posSelect.options.item(posSelect.selectedIndex).getAttribute('data-short'),
+        stat = statSelect.options.item(statSelect.selectedIndex).getAttribute('data-short');
   
-  const player = new Player(name, pos, value);
+  const player = new Player(name, pos, value, stat);
   const ui = new UI;
         
   let nameCheck = Store.checkForStoredName(player);
