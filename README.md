@@ -12,13 +12,10 @@ Input a players name, position, stat-value, and stat type.  Then display it on s
 The purpose in building this app is for me to work with vanilla Javascript.  Focusing on inputing data, storing data in local storage, displaying data, and updating data.
 
 ## Current Status
-Most simple UI, three values can be entered.
-It can submit, store, and display.  - Input a new name and have it added to DOM & Storage & Displayed in the correct catagory.
-Can input a name already existing and update DOM & Storage (no edit button)
-
-- Adding a position & stat type
-  - Production Note (Principle 2 invoked): Had to drop `datalist` element.  Couln't get JS functionality working.  I also learned it doesn't work in Safari.
-  - Replaced it with a `select` element.  It makes The JS code easier and cleaner.
+Most simple UI, four values can be entered.
+It can submit, store, and display.  
+  - Input a new name and have it added to DOM & Storage & Displayed in the correct catagory.
+  - Can input a name already existing and update DOM & Storage (no edit button)
 
 ### Next Steps
 - Sorting displayed players in correct order of highest to lowest stat value
@@ -33,6 +30,9 @@ General editing functions
 Make it look appealing.
 
 ## Misc Notes & Info
+Adding a position & stat type Productin Note:
+  - Production Note (Principle 2 invoked): Had to drop `datalist` element.  Couln't get JS functionality working.  I also learned it doesn't work in Safari.
+  - Replaced it with a `select` element.  It makes The JS code easier and cleaner.
 
 ### Principles
 I *try* to keep two specific principles in mind while building this app:
