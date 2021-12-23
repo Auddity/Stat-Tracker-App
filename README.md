@@ -2,7 +2,7 @@
 
 This is a current **work in progress**.
 
-update --12/22/21 5:50pm
+update --12/23/21 10:15am
 [Live Site](https://stat-tracker-app.vercel.app/)
 
 ## App Function
@@ -13,6 +13,8 @@ The purpose in building this app is for me to work with vanilla Javascript.  Foc
 
 ## Current Status
 #### Newest update
+Stat Leaders - Added the players stat value in descending order.
+
 Refactor to make it easier to read and manage.
 
 #### Past updates
@@ -21,16 +23,13 @@ It can submit, store, and display.
   - Input a new name and have it added to DOM & Storage & Displayed in the correct catagory.
   - Can input a name already existing and update DOM & Storage.
 
-
 ## Next Steps
-- Sorting function
-
 - Need the same player to show up in different catagories. e.g. a running back can have both rushing and receiving yards.
   - Likely to change key in storage, to multiple keys based on catagory
 
-- change DOM population from a page reload.
+- Change DOM population from a page reload.
 
-- drop plural if value is 1, add plural if value is > 1
+- Drop plural if value is 1, add plural if value is > 1
 
 - Drop innerHTML for fragment.
 
@@ -45,6 +44,7 @@ Make it look appealing.
 
 ## Misc Notes & Info
 Adding sort function (12/22/21):
+  Principle 2 invoked Again.
   - In process of doing this, refactored a lot of the code.
   - Removed logic steps from eventListener
   - Removed logic steps from adding to DOM function, renamed it to updateDOM because that's all it does now.
@@ -57,9 +57,9 @@ Adding a position & stat type/catagory (12/18/21):
   - Production Note (Principle 2 invoked): Had to drop `datalist` element.  Couln't get JS functionality working.  I also learned it doesn't work in Safari.
   - Replaced it with a `select` element.  It makes The JS code easier and cleaner.
 
-### Principles
+# Principles
 I *try* to keep two specific principles in mind while building this app:
 
-1) Make the requirements less dumb
+1) Make the requirements less dumb.
 2) Delete the part or process
   - If you're not adding things back in, you're not deleting enough.

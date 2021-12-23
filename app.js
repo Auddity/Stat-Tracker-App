@@ -25,8 +25,7 @@ class Player {
 };
 
 class UI {
-  updateDOM() {
-    const players = Store.getPlayerData();
+  updateDOM(players) {
     players.forEach(player => {
       let { name, pos, value, statShort } = player;
       const dataDisplay = `
@@ -57,10 +56,10 @@ class UI {
     });
   };
 
-  setOrder() {
-    const players = Store.getPlayerData();
+  setOrder(players) {
     players.sort((a, b) => b.value - a.value);
-  //TODO: Get this to work
+    const ui = new UI;
+    ui.updateDOM(players);
   }
 
   clearInputFields() {
@@ -83,7 +82,8 @@ class Store {
       pos:player.pos, 
       value:+player.value, 
       statShort:player.statShort, 
-      statType:player.statType };
+      statType:player.statType 
+    };
     let players = Store.getPlayerData();
     players.push(playerData);
     localStorage.setItem('players', JSON.stringify(players));
@@ -92,7 +92,6 @@ class Store {
   static updatePlayerData(player) {
     let players = Store.getPlayerData();
     const result = players.find(({ name }) => name === player.name);
-    const ui = new UI;
     if(result) {
       players = players.map(object => {
         if(object.name === result.name) object.value = +object.value + +player.value;
@@ -102,9 +101,8 @@ class Store {
     } else {
       this.addPlayerData(player);
     }
-    // What goes here? set order:
 
-    // location.reload();
+    location.reload();
   };
 
   static deletePlayerData() {
@@ -123,22 +121,21 @@ getElement('form').addEventListener('submit', e => {
         statType = statSelect.options.item(statSelect.selectedIndex).value;
   
   const player = new Player(name, pos, value, statShort, statType);
-  const ui = new UI;
   
   if(name === '' || value === '') {
     alert('Enter all values');
   } else {
-    // TODO: Which one of the below?
-    // Store.updatePlayerData(player);
-    // ui.setOrder(player);
+    Store.updatePlayerData(player);
   };
   
+  const ui = new UI;
   ui.clearInputFields();
 });
 
 document.addEventListener('DOMContentLoaded', () => {
+  let players = Store.getPlayerData();
   const ui = new UI;
-  ui.updateDOM();
+  ui.setOrder(players);
 });
 
 getElement('clear-btn').addEventListener('click', () => Store.deletePlayerData());
