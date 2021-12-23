@@ -13,7 +13,7 @@ The purpose in building this app is for me to work with vanilla Javascript.  Foc
 
 ## Current Status
 #### Newest update
-- Stat Leaders - Players display in order from highest to lowest stat value.
+Refactor to make it easier to read and manage.
 
 #### Past updates
 Most simple UI, four values can be entered.
@@ -23,6 +23,8 @@ It can submit, store, and display.
 
 
 ## Next Steps
+- Sorting function
+
 - Need the same player to show up in different catagories. e.g. a running back can have both rushing and receiving yards.
   - Likely to change key in storage, to multiple keys based on catagory
 
@@ -47,7 +49,7 @@ Adding sort function (12/22/21):
   - Removed logic steps from eventListener
   - Removed logic steps from adding to DOM function, renamed it to updateDOM because that's all it does now.
   - Removed attribute node
-  - Critical logic now takes place in updating the player data funciton.
+  - Critical logic now takes place in updating the player data function.
     - Find if name exists, if it does map over stored array, update value in player object.
     - otherwise adds a new player.
 

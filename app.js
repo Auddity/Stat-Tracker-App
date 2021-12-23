@@ -25,41 +25,43 @@ class Player {
 };
 
 class UI {
-  addPlayerToDOM(player) {
-    const { name, pos, value, statShort, statType } = player;
-    const dataDisplay = `
-      <p class="player">${name}
-        <span class="pos uppercase">${pos}</span>
-      </p>
-      <p class="stat">
-        <span class="value">${value}</span>
-        <span class="unit">${statShort}</span>
-      </p>
-    `;
-    const playerContainer = document.createElement('div');
-    playerContainer.classList.add('player-container');
-    const attr = document.createAttribute('data-id');
-    attr.value = name;
-    
-    if(statType === "Rushing Yards") {
-      rushingContainer.appendChild(playerContainer);
-      playerContainer.innerHTML = dataDisplay;
-      playerContainer.setAttributeNode(attr);
-    } else if (statType === "Receiving Yards") {
-      receivingContainer.appendChild(playerContainer);
-      playerContainer.innerHTML = dataDisplay;
-      playerContainer.setAttributeNode(attr);
-    } else if (statType === "Sacks") {
-      sacksContainer.appendChild(playerContainer);
-      playerContainer.innerHTML = dataDisplay;
-      playerContainer.setAttributeNode(attr);
-    } else {
-      intContainer.appendChild(playerContainer);
-      playerContainer.innerHTML = dataDisplay;
-      playerContainer.setAttributeNode(attr);
-    }
-
+  updateDOM() {
+    const players = Store.getPlayerData();
+    players.forEach(player => {
+      let { name, pos, value, statShort } = player;
+      const dataDisplay = `
+        <p class="player">${name}
+          <span class="pos uppercase">${pos}</span>
+        </p>
+        <p class="stat">
+          <span class="value">${value}</span>
+          <span class="unit">${statShort}</span>
+        </p>
+      `;
+      const playerContainer = document.createElement('div');
+      playerContainer.classList.add('player-container');
+      
+      if(player.statType === "Rushing Yards") {
+        rushingContainer.appendChild(playerContainer);
+        playerContainer.innerHTML = dataDisplay;
+      } else if (player.statType === "Receiving Yards") {
+        receivingContainer.appendChild(playerContainer);
+        playerContainer.innerHTML = dataDisplay;
+      } else if (player.statType === "Sacks") {
+        sacksContainer.appendChild(playerContainer);
+        playerContainer.innerHTML = dataDisplay;
+      } else {
+        intContainer.appendChild(playerContainer);
+        playerContainer.innerHTML = dataDisplay;
+      }
+    });
   };
+
+  setOrder() {
+    const players = Store.getPlayerData();
+    players.sort((a, b) => b.value - a.value);
+  //TODO: Get this to work
+  }
 
   clearInputFields() {
     nameInput.value = '';
@@ -76,7 +78,12 @@ class Store {
   };
 
   static addPlayerData(player) {
-    const playerData = { name:player.name, pos:player.pos, value:+player.value, statShort:player.statShort, statType:player.statType };
+    const playerData = { 
+      name:player.name, 
+      pos:player.pos, 
+      value:+player.value, 
+      statShort:player.statShort, 
+      statType:player.statType };
     let players = Store.getPlayerData();
     players.push(playerData);
     localStorage.setItem('players', JSON.stringify(players));
@@ -85,24 +92,19 @@ class Store {
   static updatePlayerData(player) {
     let players = Store.getPlayerData();
     const result = players.find(({ name }) => name === player.name);
-    players = players.map(object => {
-      if(object.name === result.name) object.value = +object.value + +player.value;
-      return object;
-    });
-    localStorage.setItem('players', JSON.stringify(players));
-  };
+    const ui = new UI;
+    if(result) {
+      players = players.map(object => {
+        if(object.name === result.name) object.value = +object.value + +player.value;
+        return object;
+      });
+      localStorage.setItem('players', JSON.stringify(players));   
+    } else {
+      this.addPlayerData(player);
+    }
+    // What goes here? set order:
 
-  static displayStoredData() {
-    const players = Store.getPlayerData();
-    players.forEach(player => {
-      const ui = new UI;
-      ui.addPlayerToDOM(player);
-    });
-  };
-
-  static checkForStoredName(player) {
-    const players = Store.getPlayerData();
-    return players.find(({ name }) => name === player.name);
+    // location.reload();
   };
 
   static deletePlayerData() {
@@ -122,21 +124,21 @@ getElement('form').addEventListener('submit', e => {
   
   const player = new Player(name, pos, value, statShort, statType);
   const ui = new UI;
-        
-  const nameCheck = Store.checkForStoredName(player);
+  
   if(name === '' || value === '') {
     alert('Enter all values');
-  } else if(nameCheck === undefined) {
-    ui.addPlayerToDOM(player);
-    Store.addPlayerData(player);
   } else {
-    Store.updatePlayerData(player);
-    location.reload();
+    // TODO: Which one of the below?
+    // Store.updatePlayerData(player);
+    // ui.setOrder(player);
   };
-
+  
   ui.clearInputFields();
 });
 
-document.addEventListener('DOMContentLoaded', Store.displayStoredData);
+document.addEventListener('DOMContentLoaded', () => {
+  const ui = new UI;
+  ui.updateDOM();
+});
 
 getElement('clear-btn').addEventListener('click', () => Store.deletePlayerData());
