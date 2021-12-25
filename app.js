@@ -91,20 +91,22 @@ class Store {
 
   static updatePlayerData(player) {
     let players = Store.getPlayerData();
-    const result = players.find(({ name }) => name === player.name);
-    if(result) {
-      players = players.map(object => {
-        if(object.name === result.name) object.value = +object.value + +player.value;
-        return object;
-      });
-      localStorage.setItem('players', JSON.stringify(players));   
-    } else {
+    const objMatch = players.find(({ name, statType }) => {
+      return name === player.name && statType === player.statType
+    });
+    
+    if(!objMatch) {
       this.addPlayerData(player);
+    } else {
+      players = players.map(obj => {
+        if(obj === objMatch) obj.value = +obj.value + +player.value;
+        return obj;
+      });
+      localStorage.setItem('players', JSON.stringify(players));
     }
-
     location.reload();
   };
-
+  
   static deletePlayerData() {
     localStorage.clear();
     location.reload();

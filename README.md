@@ -2,30 +2,31 @@
 
 This is a current **work in progress**.
 
-update --12/23/21 10:15am
+update --12/25/21 10:48am Merry Christmas
 [Live Site](https://stat-tracker-app.vercel.app/)
 
 ## App Function
 Input a players name, position, stat-value, and stat type.  Then display it on screen sorted in order of stat leaders.
+Data stored to local storage.
 
 ## Purpose
 The purpose in building this app is for me to work with vanilla Javascript.  Focusing on inputing data, storing data in local storage, displaying data, and updating data.
 
 ## Current Status
 #### Newest update
-Stat Leaders - Added the players stat value in descending order.
-
-Refactor to make it easier to read and manage.
+The same player can show up in different catagories, and each player can be updated in the specific stat catagory regardless of how many catagories they are in.
 
 #### Past updates
+Stat Leaders - Added the players stat value in descending order.
+Refactor to make it easier to read and manage.
+
 Most simple UI, four values can be entered.
 It can submit, store, and display.  
   - Input a new name and have it added to DOM & Storage & Displayed in the correct catagory.
   - Can input a name already existing and update DOM & Storage.
 
 ## Next Steps
-- Need the same player to show up in different catagories. e.g. a running back can have both rushing and receiving yards.
-  - Likely to change key in storage, to multiple keys based on catagory
+- Style selection options
 
 - Change DOM population from a page reload.
 
@@ -43,13 +44,14 @@ General editing functions.
 Make it look appealing.
 
 ## Misc Notes & Info
-Adding sort function (12/22/21):
+Updating a specific stat catagory on a player even though they're in different catagories (12/25/21):
+  - The answer was the find method inside the update player data function.  It wasn't in the logic, which I had first attempted.
+
+Adding sort function (12/23/21):
   Principle 2 invoked Again.
   - In process of doing this, refactored a lot of the code.
-  - Removed logic steps from eventListener
-  - Removed logic steps from adding to DOM function, renamed it to updateDOM because that's all it does now.
   - Removed attribute node
-  - Critical logic now takes place in updating the player data function.
+  - Removed logic steps from eventListener and added it to update Storage function.
     - Find if name exists, if it does map over stored array, update value in player object.
     - otherwise adds a new player.
 
