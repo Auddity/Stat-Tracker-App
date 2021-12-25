@@ -4,10 +4,12 @@
   margin-block-start: 4.5rem;
 
   .catagory {
+    width: min(100%, 775px);
     padding: 2rem 2rem;
     border: 1px solid #333;
     border-radius: 1rem;
     margin-block-end: 2rem;
+    margin-inline: auto;
     background-color: darkgrey;
 
     &-header {
@@ -18,7 +20,7 @@
   
   .player-container {
     @include mx.flexBetween;
-    width: min(100%, 775px);
+    width: clamp(70%, 100%, 50rem);
     padding-inline: .7rem;
     padding-block: .2rem;
     margin-inline: auto;
