@@ -12,13 +12,27 @@ body {
   font-size: 1.6rem;
   background-color: #333;
   color: #fefefe;
+  font-family: 'PT Sans Caption', sans-serif;
+}
+
+input, select {
+  display: inline-block;
+  width: 80%;
+  font-family: inherit;
+  letter-spacing: .1rem;
+  max-width: 33rem;
+  border-radius: .5rem;
 }
 
 input {
-  display: inline-block;
-  border-radius: .5rem;
-  width: 80%;
-  max-width: 33rem;
+  padding-inline-start: 1rem;
+  padding-block: .4rem;
+}
+
+select {
+  background-color: #fefefe;
+  padding-block: .5rem;
+  padding-inline: .5rem;
 }
 
 .container {

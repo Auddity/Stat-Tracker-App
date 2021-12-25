@@ -6,8 +6,9 @@
   .catagory {
     padding: 2rem 2rem;
     border: 1px solid #333;
-    border-radius: .5rem;
+    border-radius: 1rem;
     margin-block-end: 2rem;
+    background-color: darkgrey;
 
     &-header {
       padding-block-end: 1rem;
@@ -18,15 +19,26 @@
   .player-container {
     @include mx.flexBetween;
     width: min(100%, 775px);
+    padding-inline: .7rem;
+    padding-block: .2rem;
     margin-inline: auto;
     margin-block: .5rem;
-    background: red;
+    color: black;
+
+    .player {
+      font-weight: 700;
+    }
 
     span {
       margin-inline-start: .5rem;
 
       &.pos {
-        font-size: 1.3rem;
+        font-weight: 500;
+        font-size: 1.2rem;
+      }
+
+      &.value {
+        font-weight: 700;
       }
     }
   }

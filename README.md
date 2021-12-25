@@ -45,7 +45,7 @@ Make it look appealing.
 
 ## Misc Notes & Info
 Updating a specific stat catagory on a player even though they're in different catagories (12/25/21):
-  - The answer was the find method inside the update player data function.  It wasn't in the logic, which I had first attempted.
+  - The answer was the `find` method inside the update player data function.  It wasn't in the logic, which I had first attempted.
 
 Adding sort function (12/23/21):
   Principle 2 invoked Again.
