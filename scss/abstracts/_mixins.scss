@@ -14,5 +14,7 @@
 }
 
 @mixin mq($size) {
-  @content;
+  @media only screen and (min-width: $size) {
+    @content;
+  }
 }
