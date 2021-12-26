@@ -2,7 +2,7 @@
 
 This is a current **work in progress**.
 
-update --12/25/21 10:48am Merry Christmas
+update --12/26/21 11:57am 
 [Live Site](https://stat-tracker-app.vercel.app/)
 
 ## App Function
@@ -14,6 +14,8 @@ The purpose in building this app is for me to work with vanilla Javascript.  Foc
 
 ## Current Status
 #### Newest update
+Formatted the shortand of the stat type. Drops plural if the value is 1.
+
 The same player can show up in different catagories, and each player can be updated in the specific stat catagory regardless of how many catagories they are in.
 
 #### Past updates
@@ -26,13 +28,13 @@ It can submit, store, and display.
   - Can input a name already existing and update DOM & Storage.
 
 ## Next Steps
-- Style selection options
-
 - Change DOM population from a page reload.
 
-- Drop plural if value is 1, add plural if value is > 1
-
 - Drop innerHTML for fragment.
+
+- Determine Color Scheme / Find Photo backgrounds
+
+- Add edit individual player functions
 
 ## Future Function & Design Goals
 Currently I'm working only in football statistics.  Future features will include more sports: Basketball, Baseball, Golf.
@@ -44,6 +46,9 @@ General editing functions.
 Make it look appealing.
 
 ## Misc Notes & Info
+Formating the stat abbreviation (12/26/21)
+- Slice string method, set in it's own function.
+
 Updating a specific stat catagory on a player even though they're in different catagories (12/25/21):
   - The answer was the `find` method inside the update player data function.  It wasn't in the logic, which I had first attempted.
 
