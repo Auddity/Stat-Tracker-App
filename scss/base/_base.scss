@@ -1,3 +1,5 @@
+@use '../abstracts/variables' as v;
+
 * {
   box-sizing: border-box;
   padding: 0;
@@ -10,8 +12,8 @@ html {
 
 body {
   font-size: 1.6rem;
-  background-color: #333;
-  color: #fefefe;
+  background-color: v.$background;
+  color: v.$white;
   font-family: 'PT Sans Caption', sans-serif;
 }
 
@@ -21,17 +23,18 @@ input, select {
   font-family: inherit;
   letter-spacing: .1rem;
   max-width: 33rem;
+  border: none;
   border-radius: .5rem;
 }
 
 input {
   padding-inline-start: 1rem;
-  padding-block: .4rem;
+  padding-block: .7rem;
 }
 
 select {
   background-color: #fefefe;
-  padding-block: .5rem;
+  padding-block: .8rem;
   padding-inline: .5rem;
 }
 
