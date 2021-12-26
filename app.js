@@ -34,7 +34,7 @@ class UI {
         </p>
         <p class="stat">
           <span class="value">${value}</span>
-          <span class="unit">${statShort}</span>
+          <span class="unit">${this.formatStatAbbr(value, statShort)}</span>
         </p>
       `;
       const playerContainer = document.createElement('div');
@@ -60,6 +60,10 @@ class UI {
     players.sort((a, b) => b.value - a.value);
     const ui = new UI;
     ui.updateDOM(players);
+  }
+
+  formatStatAbbr(value, statShort) {
+    return value === 1 ? statShort.slice(0, -1) : statShort;
   }
 
   clearInputFields() {
