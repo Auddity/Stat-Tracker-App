@@ -1,0 +1,42 @@
+.modal {
+  display: none;
+  position: absolute;
+  inset: 0;
+  height: 100vh;
+  width: 100%;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  z-index: 0;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0,0,0,0.6);
+    z-index: -1;
+  };
+
+  &.open {
+    display: block;
+  };
+  
+  &-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    height: 30rem;
+    width: min(75%, 40rem);
+    transform: translateY(35%);
+    background-color: darkgrey;
+    margin-inline: auto;
+    border-radius: 1rem;
+    
+    .message {
+      font-size: 2.2rem;
+      margin-inline: auto;
+    }
+  }
+}

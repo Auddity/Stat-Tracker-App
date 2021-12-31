@@ -14,18 +14,15 @@ The purpose in building this app is for me to work with vanilla Javascript.  Foc
 
 ## Current Status
 #### Newest update
+Replaced Alert with a Modal when all the input fields haven't been filled.
+
+#### Past updates
 Formatted the shortand of the stat type. Drops plural if the value is 1.
 
 The same player can show up in different catagories, and each player can be updated in the specific stat catagory regardless of how many catagories they are in.
 
-#### Past updates
 Stat Leaders - Added the players stat value in descending order.
 Refactor to make it easier to read and manage.
-
-Most simple UI, four values can be entered.
-It can submit, store, and display.  
-  - Input a new name and have it added to DOM & Storage & Displayed in the correct catagory.
-  - Can input a name already existing and update DOM & Storage.
 
 ## Next Steps
 - Change DOM population from a page reload.

@@ -15,4 +15,14 @@ button {
   &.clear-btn {
     background-color: v.$red-danger;
   }
+
+  &.close-btn {
+    background-color: v.$background;
+    text-transform: uppercase;
+    font-weight: inherit;
+    letter-spacing: inherit;
+    padding-inline: 2rem;
+    padding-block: 1rem;
+    border-radius: 15rem;
+  }
 }

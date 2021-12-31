@@ -13,6 +13,7 @@ const rushingContainer = getElement('rushing');
 const receivingContainer = getElement('receiving');
 const sacksContainer = getElement('sacks');
 const intContainer = getElement('ints');
+const modal = getElement('modal');
 
 class Player {
   constructor(name, pos, value, statShort, statType) {
@@ -52,7 +53,7 @@ class UI {
       } else {
         intContainer.appendChild(playerContainer);
         playerContainer.innerHTML = dataDisplay;
-      }
+      };
     });
   };
 
@@ -60,17 +61,21 @@ class UI {
     players.sort((a, b) => b.value - a.value);
     const ui = new UI;
     ui.updateDOM(players);
-  }
+  };
 
   formatStatAbbr(value, statShort) {
     return value === 1 ? statShort.slice(0, -1) : statShort;
-  }
+  };
 
   clearInputFields() {
     nameInput.value = '';
     valueInput.value = '';
     nameInput.focus();
   };  
+
+  openModal() {
+    modal.classList.add('open');
+  };
 };
 
 class Store {
@@ -107,7 +112,7 @@ class Store {
         return obj;
       });
       localStorage.setItem('players', JSON.stringify(players));
-    }
+    };
     location.reload();
   };
   
@@ -127,14 +132,14 @@ getElement('form').addEventListener('submit', e => {
         statType = statSelect.options.item(statSelect.selectedIndex).value;
   
   const player = new Player(name, pos, value, statShort, statType);
+  const ui = new UI;
   
   if(name === '' || value === '') {
-    alert('Enter all values');
+    ui.openModal();
   } else {
     Store.updatePlayerData(player);
   };
   
-  const ui = new UI;
   ui.clearInputFields();
 });
 
@@ -145,3 +150,6 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 getElement('clear-btn').addEventListener('click', () => Store.deletePlayerData());
+getElement('close-btn').addEventListener('click', () => {
+  modal.classList.remove('open');
+});
