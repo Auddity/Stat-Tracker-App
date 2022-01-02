@@ -2,7 +2,7 @@
 
 This is a current **work in progress**.
 
-update --12/31/21 12:05am 
+update -- 1/1/21 
 [Live Site](https://stat-tracker-app.vercel.app/)
 
 ## App Function
@@ -14,9 +14,13 @@ The purpose in building this app is for me to work with vanilla Javascript.  Foc
 
 ## Current Status
 #### Newest update
-Replaced Alert with a Modal when all the input fields haven't been filled.
+HTML and SaSS - edit button on a catagory.
+
+Sanitized inputs. No direct innerHTML.
 
 #### Past updates
+Replaced Alert with a Modal when all the input fields haven't been filled.
+
 Formatted the shortand of the stat type. Drops plural if the value is 1.
 
 The same player can show up in different catagories, and each player can be updated in the specific stat catagory regardless of how many catagories they are in.
@@ -25,9 +29,9 @@ Stat Leaders - Added the players stat value in descending order.
 Refactor to make it easier to read and manage.
 
 ## Next Steps
-- Change DOM population from a page reload.
+- Finish an edit function.  Click on button, modal pops up with all the players in the catagory.  Select and edit desired value.
 
-- Drop innerHTML for fragment.
+- Change DOM population from a page reload.
 
 - Determine Color Scheme / Find Photo backgrounds
 

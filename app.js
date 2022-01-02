@@ -29,6 +29,8 @@ class UI {
   updateDOM(players) {
     players.forEach(player => {
       let { name, pos, value, statShort } = player;
+      const div = document.createElement('div');
+      div.classList.add('playerContainer');
       const dataDisplay = `
         <p class="player">${name}
           <span class="pos uppercase">${pos}</span>
@@ -38,9 +40,10 @@ class UI {
           <span class="unit">${this.formatStatAbbr(value, statShort)}</span>
         </p>
       `;
+
       const playerContainer = document.createElement('div');
       playerContainer.classList.add('player-container');
-      
+
       if(player.statType === "Rushing Yards") {
         rushingContainer.appendChild(playerContainer);
         playerContainer.innerHTML = dataDisplay;
@@ -54,13 +57,16 @@ class UI {
         intContainer.appendChild(playerContainer);
         playerContainer.innerHTML = dataDisplay;
       };
+
+      div.textContent = dataDisplay;
+      console.log(div.innerHTML);
+      return div.innerHTML;
     });
   };
-
+  
   setOrder(players) {
     players.sort((a, b) => b.value - a.value);
-    const ui = new UI;
-    ui.updateDOM(players);
+    this.updateDOM(players);
   };
 
   formatStatAbbr(value, statShort) {
