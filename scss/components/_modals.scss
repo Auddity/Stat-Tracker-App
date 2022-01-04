@@ -1,8 +1,10 @@
+@use '../abstracts/mixins' as mx;
+
+// General Styles
 .modal {
   display: none;
   position: absolute;
   inset: 0;
-  height: 100vh;
   width: 100%;
   font-weight: 700;
   letter-spacing: 1.5px;
@@ -31,12 +33,46 @@
     width: min(75%, 40rem);
     transform: translateY(35%);
     background-color: darkgrey;
+    text-align: center;
     margin-inline: auto;
     border-radius: 1rem;
     
     .message {
       font-size: 2.2rem;
       margin-inline: auto;
+    }
+  }
+
+  // Edit Modal
+  &.edit-modal .modal-content {
+    height: auto;
+    padding: 1rem;
+
+    .player-container {
+      @include mx.flexBetween;
+      width: clamp(70%, 100%, 50rem);
+      padding-inline: .7rem;
+      padding-block: .2rem;
+      margin-inline: auto;
+      margin-block: .5rem;
+      color: black;
+  
+      .player {
+        font-weight: 700;
+      }
+  
+      span {
+        margin-inline-start: .5rem;
+  
+        &.pos {
+          font-weight: 500;
+          font-size: 1.2rem;
+        }
+  
+        &.value {
+          font-weight: 700;
+        }
+      }
     }
   }
 }

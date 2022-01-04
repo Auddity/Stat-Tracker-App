@@ -13,7 +13,11 @@ const rushingContainer = getElement('rushing');
 const receivingContainer = getElement('receiving');
 const sacksContainer = getElement('sacks');
 const intContainer = getElement('ints');
-const modal = getElement('modal');
+
+const errModal = getElement('err-modal');
+const editBtns = document.querySelectorAll('.edit-btn');
+const editModal = getElement('edit-modal');
+const modalContent = getElement('modal-content');
 
 class Player {
   constructor(name, pos, value, statShort, statType) {
@@ -26,6 +30,7 @@ class Player {
 };
 
 class UI {
+  // Main Page Display
   updateDOM(players) {
     players.forEach(player => {
       let { name, pos, value, statShort } = player;
@@ -59,7 +64,6 @@ class UI {
       };
 
       div.textContent = dataDisplay;
-      console.log(div.innerHTML);
       return div.innerHTML;
     });
   };
@@ -79,8 +83,29 @@ class UI {
     nameInput.focus();
   };  
 
+  // Modals
   openModal() {
-    modal.classList.add('open');
+    errModal.classList.add('open');
+  };
+
+  editModalContent() {
+    let players = Store.getPlayerData();
+    players.forEach(player => {
+      let { name, pos, value, statShort } = player;
+      const dataDisplay = `
+        <p class="player">${name}
+          <span class="pos uppercase">${pos}</span>
+        </p>
+        <p class="stat">
+          <span class="value">${value}</span>
+          <span class="unit">${this.formatStatAbbr(value, statShort)}</span>
+        </p>
+      `;
+      const playerContainer = document.createElement('div');
+      playerContainer.classList.add('player-container');
+      playerContainer.innerHTML = dataDisplay;
+      modalContent.appendChild(playerContainer);
+    });
   };
 };
 
@@ -157,5 +182,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
 getElement('clear-btn').addEventListener('click', () => Store.deletePlayerData());
 getElement('close-btn').addEventListener('click', () => {
-  modal.classList.remove('open');
+  errModal.classList.remove('open');
+});
+
+editBtns.forEach((btn, idx) => {
+  const ui = new UI;
+  btn.addEventListener('click', () => {
+    if(btn) ui.editModalContent();
+    editModal.classList.add('open');
+    console.log('clicked');
+  });
 });

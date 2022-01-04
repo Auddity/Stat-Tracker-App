@@ -2,7 +2,7 @@
 
 This is a current **work in progress**.
 
-update -- 1/1/21 
+update -- 1/14/21 
 [Live Site](https://stat-tracker-app.vercel.app/)
 
 ## App Function
@@ -14,11 +14,13 @@ The purpose in building this app is for me to work with vanilla Javascript.  Foc
 
 ## Current Status
 #### Newest update
+Storage displays on edit modal.
+
 HTML and SaSS - edit button on a catagory.
 
+#### Past updates
 Sanitized inputs. No direct innerHTML.
 
-#### Past updates
 Replaced Alert with a Modal when all the input fields haven't been filled.
 
 Formatted the shortand of the stat type. Drops plural if the value is 1.
