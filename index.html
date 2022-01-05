@@ -8,6 +8,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=PT+Sans+Caption:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css">
   <!-- Stylesheets -->
   <link rel="stylesheet" href="./css/main.min.css">
   <title>Team Stat Tracker</title>
@@ -131,7 +133,7 @@
     <div class="catagory" id="rushing">
       <header class="catagory-header">
         <h2>rushing leaders</h2>
-        <button type="button" class="edit-btn capitalize">
+        <button type="button" class="edit-btn capitalize" data-catagory="Rushing Yards">
           edit player
         </button>
       </header>
@@ -140,7 +142,7 @@
     <div class="catagory" id="receiving">
       <header class="catagory-header">
         <h2>receiving leaders</h2>
-        <button type="button" class="edit-btn capitalize">
+        <button type="button" class="edit-btn capitalize" data-catagory="Receiving Yards">
           edit player
         </button>
       </header>
@@ -150,7 +152,7 @@
     <div class="catagory" id="sacks">
       <header class="catagory-header">
         <h2>sack leaders</h2>
-        <button type="button" class="edit-btn capitalize">
+        <button type="button" class="edit-btn capitalize" data-catagory="Sacks">
           edit player
         </button>
       </header>
@@ -160,7 +162,7 @@
     <div class="catagory" id="ints">
       <header class="catagory-header">
         <h2>interception leaders</h2>
-        <button type="button" class="edit-btn capitalize">
+        <button type="button" class="edit-btn capitalize" data-catagory="Interceptions">
           edit player
         </button>
       </header>

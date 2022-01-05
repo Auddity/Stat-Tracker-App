@@ -88,9 +88,10 @@ class UI {
     errModal.classList.add('open');
   };
 
-  editModalContent() {
+  editModalContent(btnCatagory) {
     let players = Store.getPlayerData();
-    players.forEach(player => {
+    let filteredPlayers = players.filter(player => player.statType === btnCatagory);
+    filteredPlayers.forEach(player => {
       let { name, pos, value, statShort } = player;
       const dataDisplay = `
         <p class="player">${name}
@@ -99,6 +100,9 @@ class UI {
         <p class="stat">
           <span class="value">${value}</span>
           <span class="unit">${this.formatStatAbbr(value, statShort)}</span>
+          <button type="button" class="edit-player" id="edit-player">
+            <i class="ri-edit-box-line"></i>
+          </button>
         </p>
       `;
       const playerContainer = document.createElement('div');
@@ -174,6 +178,7 @@ getElement('form').addEventListener('submit', e => {
   ui.clearInputFields();
 });
 
+// Event Listeners
 document.addEventListener('DOMContentLoaded', () => {
   let players = Store.getPlayerData();
   const ui = new UI;
@@ -185,11 +190,12 @@ getElement('close-btn').addEventListener('click', () => {
   errModal.classList.remove('open');
 });
 
-editBtns.forEach((btn, idx) => {
+for(let btn of editBtns) {
   const ui = new UI;
   btn.addEventListener('click', () => {
-    if(btn) ui.editModalContent();
+    const btnCatagory = btn.dataset.catagory;
+    if(btn) ui.editModalContent(btnCatagory);
     editModal.classList.add('open');
-    console.log('clicked');
+    window.scrollTo({ top: 0 })
   });
-});
+};

@@ -2,7 +2,7 @@
 
 This is a current **work in progress**.
 
-update -- 1/14/21 
+update -- 1/5/21 1:32pm EST
 [Live Site](https://stat-tracker-app.vercel.app/)
 
 ## App Function
@@ -14,7 +14,7 @@ The purpose in building this app is for me to work with vanilla Javascript.  Foc
 
 ## Current Status
 #### Newest update
-Storage displays on edit modal.
+Edit modal shows players in the catagory that corresponds with which edit button is clicked.
 
 HTML and SaSS - edit button on a catagory.
 
@@ -31,13 +31,13 @@ Stat Leaders - Added the players stat value in descending order.
 Refactor to make it easier to read and manage.
 
 ## Next Steps
-- Finish an edit function.  Click on button, modal pops up with all the players in the catagory.  Select and edit desired value.
+- Add edit individual player function.
+
+- Fix header alignment on catagory sections
 
 - Change DOM population from a page reload.
 
 - Determine Color Scheme / Find Photo backgrounds
-
-- Add edit individual player functions
 
 ## Future Function & Design Goals
 Currently I'm working only in football statistics.  Future features will include more sports: Basketball, Baseball, Golf.

@@ -31,5 +31,12 @@ button {
     top: 0;
     right: 0;
     color: v.$background;
+
+  }
+
+  &.edit-player {
+    background: transparent;
+    color: v.$background;
+    font-size: 1.5rem;
   }
 }
