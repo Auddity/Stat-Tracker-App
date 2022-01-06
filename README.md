@@ -49,6 +49,11 @@ General editing functions.
 Make it look appealing.
 
 ## Misc Notes & Info
+To display corresponding players in edit modal (1/5/2022)
+- Used filter method on the array of player objects.
+- Added data-* to edit button which corresponds with desired stat unit.
+- That data id passed as parameter into display edit modal function.
+
 Formating the stat abbreviation (12/26/21)
 - Slice string method, set in it's own function.
 

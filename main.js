@@ -68,7 +68,7 @@ class UI {
     });
   };
   
-  setOrder(players) {
+  setOrder(players, ) {
     players.sort((a, b) => b.value - a.value);
     this.updateDOM(players);
   };
@@ -83,14 +83,10 @@ class UI {
     nameInput.focus();
   };  
 
-  // Modals
-  openModal() {
-    errModal.classList.add('open');
-  };
-
+  // Modals Display
   editModalContent(btnCatagory) {
     let players = Store.getPlayerData();
-    let filteredPlayers = players.filter(player => player.statType === btnCatagory);
+    let filteredPlayers = players.filter(player => player.statType === btnCatagory).sort((a, b) => a.value - b.value);
     filteredPlayers.forEach(player => {
       let { name, pos, value, statShort } = player;
       const dataDisplay = `
@@ -113,6 +109,7 @@ class UI {
   };
 };
 
+// Storage
 class Store {
   static getPlayerData() {
     return localStorage.getItem('players')
@@ -170,7 +167,7 @@ getElement('form').addEventListener('submit', e => {
   const ui = new UI;
   
   if(name === '' || value === '') {
-    ui.openModal();
+    errModal.classList.add('open');
   } else {
     Store.updatePlayerData(player);
   };
@@ -186,8 +183,14 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 getElement('clear-btn').addEventListener('click', () => Store.deletePlayerData());
-getElement('close-btn').addEventListener('click', () => {
-  errModal.classList.remove('open');
+getElement('err-close').addEventListener('click', () => errModal.classList.remove('open'));
+getElement('edit-close').addEventListener('click', () => {
+  editModal.classList.remove('open');
+  const playerContainers = modalContent.querySelectorAll('.player-container');
+  console.log(playerContainers);
+  playerContainers.forEach(container => {
+    modalContent.removeChild(container);
+  });
 });
 
 for(let btn of editBtns) {

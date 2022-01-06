@@ -14,7 +14,6 @@
     content: '';
     position: absolute;
     inset: 0;
-    // height: auto;
     width: 100%;
     background-color: rgba(0,0,0,0.6);
     z-index: -1;
@@ -47,6 +46,8 @@
   &.edit-modal .modal-content {
     height: auto;
     padding: 1rem;
+    display: flex;
+    flex-direction: column-reverse;
 
     .player-container {
       @include mx.flexBetween;

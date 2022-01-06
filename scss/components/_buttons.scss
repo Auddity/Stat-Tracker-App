@@ -17,13 +17,14 @@ button {
   }
 
   &.close-btn {
-    background-color: v.$background;
+    background-color: v.$closeBtn;
     text-transform: uppercase;
     font-weight: inherit;
     letter-spacing: inherit;
     padding-inline: 2rem;
     padding-block: 1rem;
     border-radius: 15rem;
+    margin-block: 1.5rem;
   }
 
   &.edit-btn {
@@ -31,7 +32,6 @@ button {
     top: 0;
     right: 0;
     color: v.$background;
-
   }
 
   &.edit-player {
