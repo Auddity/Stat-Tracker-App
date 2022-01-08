@@ -85,7 +85,7 @@
         </label>
   
         <label for="stat" class="form-control">
-          <p>select stat unit</p>
+          <p>select stat type</p>
           <!-- <input list="stat" id="stat-unit"> -->
           <select id="stat">
             <option 
@@ -171,17 +171,26 @@
   </section>
   
   <!-- Modals -->
-  <section class="modal" id="err-modal">
+  <section class="modal capitalize" id="err-modal">
     <div class="modal-content">
       <h3 class="message">Please fill out all input fields.</h3>
       <button type="button" class="close-btn" id="err-close">close</button>
     </div>
   </section>
 
-  <section class="modal edit-modal" id="edit-modal">
-    <div class="modal-content" id="modal-content">
+  <section class="modal edit-modal capitalize" id="edit-modal">
+    <div class="modal-content" id="edit-modal-content">
       
       <button type="button" class="close-btn" id="edit-close">close</button>
+    </div>
+  </section>
+
+  <section class="modal edit-player-modal capitalize" id="edit-player-modal">
+    <div class="modal-content" id="edit-player-modal-content">
+      <form class="edit-player-form" >
+
+        <button type="submit" class="update-player-btn capitalize">update</button>
+      </form>
     </div>
   </section>
 

@@ -34,9 +34,15 @@ button {
     color: v.$background;
   }
 
-  &.edit-player {
+  &.edit-player-btn {
     background: transparent;
     color: v.$background;
     font-size: 1.5rem;
+  }
+
+  &.update-player-btn {
+    background: v.$green-safe;
+    font-size: 1.5rem;
+    font-weight: 700;
   }
 }

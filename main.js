@@ -17,7 +17,8 @@ const intContainer = getElement('ints');
 const errModal = getElement('err-modal');
 const editBtns = document.querySelectorAll('.edit-btn');
 const editModal = getElement('edit-modal');
-const modalContent = getElement('modal-content');
+const editPlayerModal = getElement('edit-player-modal');
+const modalContent = getElement('edit-modal-content');
 
 class Player {
   constructor(name, pos, value, statShort, statType) {
@@ -96,7 +97,7 @@ class UI {
         <p class="stat">
           <span class="value">${value}</span>
           <span class="unit">${this.formatStatAbbr(value, statShort)}</span>
-          <button type="button" class="edit-player" id="edit-player">
+          <button type="button" class="edit-player-btn" data-name="${name}">
             <i class="ri-edit-box-line"></i>
           </button>
         </p>
@@ -105,7 +106,31 @@ class UI {
       playerContainer.classList.add('player-container');
       playerContainer.innerHTML = dataDisplay;
       modalContent.appendChild(playerContainer);
+
+      const editPlayerBtn = playerContainer.lastElementChild.querySelector('.edit-player-btn');
+      editPlayerBtn.addEventListener('click', e => {
+        const target = e.currentTarget.getAttribute('data-name');
+        Store.editStoredPlayer(target);
+      });
     });
+  };
+
+  editPlayerModalContent(player) {
+    const { name, pos, value, statShort } = player;
+    const dataDisplay = `
+        <p class="player">${name}
+          <span class="pos uppercase">${pos}</span>
+        </p>
+        <p class="stat">
+          <span class="value">${value}</span>
+          <span class="unit">${this.formatStatAbbr(value, statShort)}</span>
+        </p>
+      `;
+    const editPlayerModalContent = getElement('edit-player-modal-content');
+    const playerContainer = document.createElement('div');
+    playerContainer.classList.add('player-container');
+    playerContainer.innerHTML = dataDisplay;
+    editPlayerModalContent.appendChild(playerContainer);
   };
 };
 
@@ -147,6 +172,18 @@ class Store {
     };
     location.reload();
   };
+
+  static editStoredPlayer(target) {
+    let players = this.getPlayerData();
+    const ui = new UI;
+    players.forEach(player => {
+      editPlayerModal.classList.add('open');
+      if(player.name === target) {
+        console.log(player.name);
+        ui.editPlayerModalContent(player);
+      };
+    });
+  };
   
   static deletePlayerData() {
     localStorage.clear();
@@ -175,7 +212,6 @@ getElement('form').addEventListener('submit', e => {
   ui.clearInputFields();
 });
 
-// Event Listeners
 document.addEventListener('DOMContentLoaded', () => {
   let players = Store.getPlayerData();
   const ui = new UI;
@@ -187,7 +223,6 @@ getElement('err-close').addEventListener('click', () => errModal.classList.remov
 getElement('edit-close').addEventListener('click', () => {
   editModal.classList.remove('open');
   const playerContainers = modalContent.querySelectorAll('.player-container');
-  console.log(playerContainers);
   playerContainers.forEach(container => {
     modalContent.removeChild(container);
   });

@@ -42,38 +42,17 @@
     }
   }
 
-  // Edit Modal
+  // Edit Modals
   &.edit-modal .modal-content {
     height: auto;
-    padding: 1rem;
     display: flex;
     flex-direction: column-reverse;
+    padding: 1rem;
+  }
 
-    .player-container {
-      @include mx.flexBetween;
-      width: clamp(70%, 100%, 50rem);
-      padding-inline: .7rem;
-      padding-block: .2rem;
-      margin-inline: auto;
-      margin-block: .5rem;
-      color: black;
-  
-      .player {
-        font-weight: 700;
-      }
-  
-      span {
-        margin-inline-start: .5rem;
-  
-        &.pos {
-          font-weight: 500;
-          font-size: 1.2rem;
-        }
-  
-        &.value {
-          font-weight: 700;
-        }
-      }
-    }
+  &.edit-player-modal .modal-content {
+    display: flex;
+    flex-direction: column-reverse;
+    padding: 1rem;
   }
 }

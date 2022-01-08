@@ -19,30 +19,32 @@
     }
   }
   
-  .player-container {
-    @include mx.flexBetween;
-    width: clamp(70%, 100%, 50rem);
-    padding-inline: .7rem;
-    padding-block: .2rem;
-    margin-inline: auto;
-    margin-block: .5rem;
-    color: black;
+}
 
-    .player {
-      font-weight: 700;
+// For both main page & modals
+.player-container {
+  @include mx.flexBetween;
+  width: clamp(70%, 100%, 50rem);
+  padding-inline: .7rem;
+  padding-block: .2rem;
+  margin-inline: auto;
+  margin-block: .5rem;
+  color: black;
+
+  .player {
+    font-weight: 700;
+  }
+
+  span {
+    margin-inline-start: .5rem;
+
+    &.pos {
+      font-weight: 500;
+      font-size: 1.2rem;
     }
 
-    span {
-      margin-inline-start: .5rem;
-
-      &.pos {
-        font-weight: 500;
-        font-size: 1.2rem;
-      }
-
-      &.value {
-        font-weight: 700;
-      }
+    &.value {
+      font-weight: 700;
     }
   }
 }
