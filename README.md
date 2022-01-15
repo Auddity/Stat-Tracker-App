@@ -2,7 +2,7 @@
 
 This is a current **work in progress**.
 
-update -- 1/5/21 1:32pm EST
+update -- 1/15/21 6:30pm EST
 [Live Site](https://stat-tracker-app.vercel.app/)
 
 ## App Function
@@ -13,10 +13,10 @@ Data stored to local storage.
 The purpose in building this app is for me to work with vanilla Javascript.  Focusing on inputing data, storing data in local storage, displaying data, and updating data.
 
 ## Current Status
-#### Newest update
-Edit modal shows players in the catagory that corresponds with which edit button is clicked.
+#### Newest updates
+Input fields added for data update on player objects
 
-HTML and SaSS - edit button on a catagory.
+Edit modal shows players in the catagory that corresponds with which edit button is clicked.
 
 #### Past updates
 Sanitized inputs. No direct innerHTML.
@@ -27,11 +27,8 @@ Formatted the shortand of the stat type. Drops plural if the value is 1.
 
 The same player can show up in different catagories, and each player can be updated in the specific stat catagory regardless of how many catagories they are in.
 
-Stat Leaders - Added the players stat value in descending order.
-Refactor to make it easier to read and manage.
-
 ## Next Steps
-- Add edit individual player function.
+- Update local storage and main display after update button is clicked.
 
 - Fix header alignment on catagory sections
 
@@ -49,6 +46,8 @@ General editing functions.
 Make it look appealing.
 
 ## Misc Notes & Info
+Planning is important, but how do you plan when you don't know what's needed?  -  By going through this project step by step I've learned of things that are necessary that I wouldn't of otherwise thought of.
+
 To display corresponding players in edit modal (1/5/2022)
 - Used filter method on the array of player objects.
 - Added data-* to edit button which corresponds with desired stat unit.

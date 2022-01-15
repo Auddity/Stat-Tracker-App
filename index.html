@@ -86,7 +86,6 @@
   
         <label for="stat" class="form-control">
           <p>select stat type</p>
-          <!-- <input list="stat" id="stat-unit"> -->
           <select id="stat">
             <option 
               value="Rushing Yards"
@@ -187,7 +186,94 @@
 
   <section class="modal edit-player-modal capitalize" id="edit-player-modal">
     <div class="modal-content" id="edit-player-modal-content">
-      <form class="edit-player-form" >
+      <form class="edit-player-form" id="edit-player-form">
+
+        <label for="player-name" class="form-control">
+          <p>enter players name</p>
+          <input type="text" id="update-player-name">
+        </label>
+        <label for="positions" class="form-control">
+          <p>select players position</p>
+          
+          <select id="update-positions">
+            <option 
+              value="Quarter Back" 
+              data-short="qb">
+                Quarter Back
+            </option>
+            <option 
+              value="Running Back" 
+              data-short="rb">
+                Running Back
+            </option>
+            <option 
+              value="Wide Receiver" 
+              data-short="wr">
+                Wide Receiver
+            </option>
+            <option 
+              value="Tight End" 
+              data-short="te">
+                Tight End
+            </option>
+            <option 
+              value="Defensive End" 
+              data-short="de">
+                Defensive End
+            </option>
+            <option 
+              value="Defensive Tackle" 
+              data-short="dt">
+                Defensive Tackle
+            </option>
+            <option 
+              value="Linebacker" 
+              data-short="lb">
+                Linebacker
+            </option>
+            <option 
+              value="Corner Back" 
+              data-short="cb">
+                Corner Back
+            </option>
+            <option 
+              value="Safety" 
+              data-short="s">
+                Safety
+            </option>
+          </select>
+        </label>
+        
+        <label for="stat-value" class="form-control">
+          <p>enter stat value</p>
+          <input type="number" id="update-stat-value">
+        </label>
+  
+        <label for="stat" class="form-control">
+          <p>select stat type</p>
+          <select id="update-stat">
+            <option 
+              value="Rushing Yards"
+              data-short="yds">
+                Rushing Yards
+              </option>
+            <option 
+              value="Receiving Yards"
+              data-short="yds">
+                Receiving Yards
+              </option>
+            <option 
+              value="Sacks"
+              data-short="sacks">
+                Sacks
+            </option>
+            <option 
+              value="Interceptions"
+              data-short="ints">
+                Interceptions
+              </option>
+            </select>
+        </label>
 
         <button type="submit" class="update-player-btn capitalize">update</button>
       </form>
