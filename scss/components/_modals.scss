@@ -51,8 +51,11 @@
   }
 
   &.edit-player-modal .modal-content {
+    height: auto;
     display: flex;
     flex-direction: column-reverse;
-    padding: 1rem;
+    padding: 2.5rem 2rem;
   }
 }
+
+// **NOTE: The form for the edit modal is in _forms.scss **

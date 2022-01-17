@@ -293,3 +293,8 @@ for(let btn of editBtns) {
     window.scrollTo({ top: 0 })
   });
 };
+
+// Close edit window
+getElement('edit-close-btn').addEventListener('click', () => {
+  editPlayerModal.classList.remove('open');
+});

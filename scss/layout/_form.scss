@@ -1,28 +1,44 @@
 @use '../abstracts/mixins' as mx;
 
-.form-container {
-  .form {
-    .form-control {
-      width: 100%;
-      @include mx.flexColumn;
-      text-align: left;
-      margin-block: 2rem;
+// Landing Page Form
+.form {
+  .form-control {
+    width: 100%;
+    @include mx.flexColumn;
+    text-align: left;
+    margin-block: 2rem;
 
-      p {
-        margin-block-end: 1rem;
+    p {
+      margin-block-end: 1rem;
+    }
+
+    &.btn-container {
+      width: min(100%, 500px);
+      padding-block-start: 1.5rem;
+      margin-inline: auto;
+      flex-direction: row;
+      justify-content: space-around;
+
+      button {
+        font-family: inherit;
       }
+    }
+  }
+}
 
-      &.btn-container {
-        width: min(100%, 500px);
-        padding-block-start: 1.5rem;
-        margin-inline: auto;
-        flex-direction: row;
-        justify-content: space-around;
+// Modal Form
+.edit-player-modal .form {
+  input {
+    padding-block: .5rem;
+  }
 
-        button {
-          font-family: inherit;
-        }
-      }
+  .button-container {
+    @extend %flex;
+    justify-content: space-evenly;
+
+    button {
+      font-family: inherit;
+      font-weight: 700;
     }
   }
 }

@@ -116,13 +116,13 @@
             class="capitalize submit-btn" 
             id="submit-btn">
               submit
-            </button>
+          </button>
           <button 
             type="reset" 
             class="capitalize clear-btn" 
             id="clear-btn">
               clear all stats
-            </button>
+          </button>
         </div>
       </form>
     </section>
@@ -186,7 +186,8 @@
 
   <section class="modal edit-player-modal capitalize" id="edit-player-modal">
     <div class="modal-content" id="edit-player-modal-content">
-      <form class="edit-player-form" id="edit-player-form">
+      <div class="form-container"></div>
+      <form class="form edit-player-form" id="edit-player-form">
 
         <label for="player-name" class="form-control">
           <p>enter players name</p>
@@ -275,7 +276,15 @@
             </select>
         </label>
 
-        <button type="submit" class="update-player-btn capitalize">update</button>
+        <div class="button-container">
+          <button type="submit" class="update-player-btn capitalize">update</button>
+          <button 
+            type="reset" 
+            class="capitalize clear-btn" 
+            id="edit-close-btn">
+              cancel
+          </button>
+        </div>
       </form>
     </div>
   </section>
