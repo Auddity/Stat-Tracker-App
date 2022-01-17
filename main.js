@@ -222,22 +222,20 @@ class Store {
 
     let players = this.getPlayerData();
 
-    console.log(objMatch, 'working?');
-
-    // let result;
-    // players = players.map(obj => {
-    //   if(obj === objMatch) {
-    //     obj.pos = posUpdate;
-    //   }
-    //   result = obj;
-    //   return result;
-    // })
-
-    // console.log(result);
-
+    players = players.map(obj => {
+      if(obj.name === objMatch.name && obj.statType === objMatch.statType) {
+        obj.name = nameUpdate;
+        obj.pos = posUpdate;
+        obj.value = valueUpdate;
+        obj.statShort = statShortUpdate;
+        obj.statType = statTypeUpdate;
+      }
+      return obj;
+    });
+    localStorage.setItem('players', JSON.stringify(players));
+    
     editPlayerModal.classList.remove('open');
     location.reload();
-    
   };
   
   static deletePlayerData() {

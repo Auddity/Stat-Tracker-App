@@ -2,11 +2,13 @@
 
 This is a current **work in progress**.
 
-update -- 1/15/21 6:30pm EST
+update -- 1/17/21 12:05pm EST
+
 [Live Site](https://stat-tracker-app.vercel.app/)
 
 ## App Function
 Input a players name, position, stat-value, and stat type.  Then display it on screen sorted in order of stat leaders.
+
 Data stored to local storage.
 
 ## Purpose
@@ -14,21 +16,21 @@ The purpose in building this app is for me to work with vanilla Javascript.  Foc
 
 ## Current Status
 #### Newest updates
-Input fields added for data update on player objects
-
-Edit modal shows players in the catagory that corresponds with which edit button is clicked.
+Can now edit an individual players data. (still bug testing)
 
 #### Past updates
+Edit player modal added.
+
 Sanitized inputs. No direct innerHTML.
 
 Replaced Alert with a Modal when all the input fields haven't been filled.
 
 Formatted the shortand of the stat type. Drops plural if the value is 1.
 
-The same player can show up in different catagories, and each player can be updated in the specific stat catagory regardless of how many catagories they are in.
-
 ## Next Steps
-- Update local storage and main display after update button is clicked.
+- Bug test edit fuction
+
+- Fix edit modal spacing/organization
 
 - Fix header alignment on catagory sections
 
@@ -38,10 +40,6 @@ The same player can show up in different catagories, and each player can be upda
 
 ## Future Function & Design Goals
 Currently I'm working only in football statistics.  Future features will include more sports: Basketball, Baseball, Golf.
-
-If wrong position is entered, edit individual player item, or overwrite upon next stat update?
-
-General editing functions.
 
 Make it look appealing.
 
