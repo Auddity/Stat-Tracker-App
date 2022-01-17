@@ -294,7 +294,9 @@ for(let btn of editBtns) {
   });
 };
 
-// Close edit window
+// close edit player modal (cancel edit)
 getElement('edit-close-btn').addEventListener('click', () => {
+  const playerContainer = editPlayerModalContent.querySelector('.player-container');
+  editPlayerModalContent.removeChild(playerContainer);
   editPlayerModal.classList.remove('open');
 });
