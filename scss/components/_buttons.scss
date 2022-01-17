@@ -34,7 +34,7 @@ button {
     color: v.$background;
   }
 
-  &.edit-player-btn {
+  &.edit-player-btn, &.delete-player-btn {
     background: transparent;
     color: v.$background;
     font-size: 1.5rem;
@@ -45,4 +45,6 @@ button {
     font-size: 1.5rem;
     font-weight: 700;
   }
+
+  
 }

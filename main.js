@@ -108,6 +108,9 @@ class UI {
           <button type="button" class="edit-player-btn" data-name="${name}">
             <i class="ri-edit-box-line"></i>
           </button>
+          <button type="button" class="delete-player-btn" data-name="${name}">
+            <i class="ri-delete-bin-4-fill"></i>
+          </button>
         </p>
       `;
       const playerContainer = document.createElement('div');
@@ -122,6 +125,16 @@ class UI {
         const targetStatType = e.currentTarget.parentElement.parentElement.getAttribute('data-stat-type');
 
         this.editPlayerModalContent(targetName, targetStatType);
+      });
+
+      const deletePlayerBtn = playerContainer.lastElementChild.querySelector('.delete-player-btn');
+      deletePlayerBtn.addEventListener('click', e => {
+        const targetName = e.currentTarget.getAttribute('data-name');
+        const targetStatType = e.currentTarget.parentElement.parentElement.getAttribute('data-stat-type');
+
+        console.log(targetStatType)
+
+        Store.deletePlayer(targetName, targetStatType);
       });
     });
   };
@@ -217,10 +230,12 @@ class Store {
     const nameUpdate = updateNameInput.value,
           posUpdate = updatePosInput.options.item(updatePosInput.selectedIndex).getAttribute('data-short'),
           valueUpdate = updateStatValueInput.value,
-          statShortUpdate = updateStatTypeInput.options.item(updateStatTypeInput).getAttribute('data-short'),
+          statShortUpdate = updateStatTypeInput.options.item(updateStatTypeInput.selectedIndex).getAttribute('data-short'),
           statTypeUpdate = updateStatTypeInput.options.item(updateStatTypeInput.selectedIndex).value;
 
     let players = this.getPlayerData();
+
+    console.log(statShortUpdate);
 
     players = players.map(obj => {
       if(obj.name === objMatch.name && obj.statType === objMatch.statType) {
@@ -235,10 +250,23 @@ class Store {
     localStorage.setItem('players', JSON.stringify(players));
     
     editPlayerModal.classList.remove('open');
+    editModal.classList.remove('open')
     location.reload();
   };
+
+  static deletePlayer(targetName, targetStatType) {
+    let players = this.getPlayerData();
+    let result;
+    players = players.filter(obj => {
+      if(obj.name !== targetName || obj.statType !== targetStatType) {
+        return result = obj;
+      }
+    });
+    localStorage.setItem('players', JSON.stringify(players));
+    location.reload();
+  }
   
-  static deletePlayerData() {
+  static deleteAllPlayerData() {
     localStorage.clear();
     location.reload();
   };
@@ -273,7 +301,7 @@ document.addEventListener('DOMContentLoaded', () => {
   ui.setOrder(players);
 });
 
-getElement('clear-btn').addEventListener('click', () => Store.deletePlayerData());
+getElement('clear-btn').addEventListener('click', () => Store.deleteAllPlayerData());
 getElement('err-close').addEventListener('click', () => errModal.classList.remove('open'));
 getElement('edit-close').addEventListener('click', () => {
   editModal.classList.remove('open');
