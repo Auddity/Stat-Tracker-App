@@ -14,11 +14,12 @@
 
     &-header {
       position: relative;
-      padding-block-end: 1rem;
+      @extend %flex;
+      justify-content: space-around;
       text-align: center;
+      padding-block-end: 1rem;
     }
   }
-  
 }
 
 // For both main page & modals

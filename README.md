@@ -16,10 +16,9 @@ The purpose in building this app is for me to work with vanilla Javascript.  Foc
 
 ## Current Status
 #### Newest updates
-Delete individual player option added.
+Delete individual player option added. (Needs fixed)
 
 Can now edit an individual players data. (still bug testing)
- - Most bugs found and fixed
 
 #### Past updates
 Edit player modal added.
@@ -32,8 +31,8 @@ Formatted the shortand of the stat type. Drops plural if the value is 1.
 
 ## Next Steps
 - Bug test edit fuction
-
-- Fix header alignment on catagory sections
+  - Issue: second time updating a player in a catagory the info overwrites other players in that catagory.
+  - Undeclared variable when deleting a player
 
 - Add success/error message
 
@@ -42,6 +41,8 @@ Formatted the shortand of the stat type. Drops plural if the value is 1.
 - Change DOM population from a page reload.
 
 - Determine Color Scheme / Find Photo backgrounds
+
+- Build database so as to not rely on Local Storage
 
 ## Future Function & Design Goals
 Currently I'm working only in football statistics.  Future features will include more sports: Basketball, Baseball, Golf.

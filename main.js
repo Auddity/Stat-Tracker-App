@@ -141,6 +141,8 @@ class UI {
 
   editPlayerModalContent(targetName, targetStatType) {
     let players = Store.getPlayerData();
+    // TODO: Refactor - objMatch is used in multiple functions
+    // TODO: Also, can I turn any of these functions into a method to use on an object?
     const objMatch = players.find(({ name, statType }) => {
       return name === targetName && statType === targetStatType;
     });
@@ -256,7 +258,6 @@ class Store {
 
   static deletePlayer(targetName, targetStatType) {
     let players = this.getPlayerData();
-    let result;
     players = players.filter(obj => {
       if(obj.name !== targetName || obj.statType !== targetStatType) {
         return result = obj;

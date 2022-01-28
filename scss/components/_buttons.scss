@@ -28,10 +28,10 @@ button {
   }
 
   &.edit-btn {
-    position: absolute;
-    top: 0;
-    right: 0;
     color: v.$background;
+    font-size: 1.1rem;
+    line-height: 1.4;
+    padding-block: .5rem;
   }
 
   &.edit-player-btn, &.delete-player-btn {
@@ -45,6 +45,4 @@ button {
     font-size: 1.5rem;
     font-weight: 700;
   }
-
-  
 }
