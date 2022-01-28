@@ -2,7 +2,7 @@
 
 This is a current **work in progress**.
 
-update -- 1/17/21 4:21pm EST
+update -- 1/28/21 9:15am EST
 
 [Live Site](https://stat-tracker-app.vercel.app/)
 
