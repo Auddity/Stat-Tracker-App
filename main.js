@@ -132,8 +132,6 @@ class UI {
         const targetName = e.currentTarget.getAttribute('data-name');
         const targetStatType = e.currentTarget.parentElement.parentElement.getAttribute('data-stat-type');
 
-        console.log(targetStatType)
-
         Store.deletePlayer(targetName, targetStatType);
       });
     });
@@ -237,8 +235,6 @@ class Store {
 
     let players = this.getPlayerData();
 
-    console.log(statShortUpdate);
-
     players = players.map(obj => {
       if(obj.name === objMatch.name && obj.statType === objMatch.statType) {
         obj.name = nameUpdate;
@@ -260,7 +256,7 @@ class Store {
     let players = this.getPlayerData();
     players = players.filter(obj => {
       if(obj.name !== targetName || obj.statType !== targetStatType) {
-        return result = obj;
+        return obj;
       }
     });
     localStorage.setItem('players', JSON.stringify(players));

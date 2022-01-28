@@ -16,23 +16,22 @@ The purpose in building this app is for me to work with vanilla Javascript.  Foc
 
 ## Current Status
 #### Newest updates
-Delete individual player option added. (Needs fixed)
+Delete individual player fixed.
 
 Can now edit an individual players data. (still bug testing)
 
 #### Past updates
+Delete individual player added.
+
 Edit player modal added.
 
 Sanitized inputs. No direct innerHTML.
 
 Replaced Alert with a Modal when all the input fields haven't been filled.
 
-Formatted the shortand of the stat type. Drops plural if the value is 1.
-
 ## Next Steps
 - Bug test edit fuction
   - Issue: second time updating a player in a catagory the info overwrites other players in that catagory.
-  - Undeclared variable when deleting a player
 
 - Add success/error message
 
