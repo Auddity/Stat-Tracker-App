@@ -1,6 +1,18 @@
 @use '../abstracts/mixins' as mx;
 
 // General Styles
+body.modal-bg {
+  &::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.6);
+    z-index: 1;
+  }
+}
 .modal {
   display: none;
   position: absolute;
@@ -8,16 +20,7 @@
   width: 100%;
   font-weight: 700;
   letter-spacing: 1.5px;
-  z-index: 0;
-  
-  &::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    background-color: rgba(0,0,0,0.6);
-    z-index: -1;
-  };
+  z-index: 1;
 
   &.open {
     display: block;

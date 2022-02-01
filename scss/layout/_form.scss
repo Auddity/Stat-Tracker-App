@@ -1,26 +1,32 @@
 @use '../abstracts/mixins' as mx;
 
 // Landing Page Form
-.form {
-  .form-control {
-    width: 100%;
-    @include mx.flexColumn;
-    text-align: left;
-    margin-block: 2rem;
+.form-container {
+  font-family: 'PT Sans Caption', sans-serif;
+  font-size: 1.6rem;
+  letter-spacing: 0;
 
-    p {
-      margin-block-end: 1rem;
-    }
-
-    &.btn-container {
-      width: min(100%, 500px);
-      padding-block-start: 1.5rem;
-      margin-inline: auto;
-      flex-direction: row;
-      justify-content: space-around;
-
-      button {
-        font-family: inherit;
+  .form {
+    .form-control {
+      width: 100%;
+      @include mx.flexColumn;
+      text-align: left;
+      margin-block: 2rem;
+  
+      p {
+        margin-block-end: 1rem;
+      }
+  
+      &.btn-container {
+        width: min(100%, 500px);
+        padding-block-start: 1.5rem;
+        margin-inline: auto;
+        flex-direction: row;
+        justify-content: space-around;
+  
+        button {
+          font-family: inherit;
+        }
       }
     }
   }
@@ -35,6 +41,7 @@
   .button-container {
     @extend %flex;
     justify-content: space-evenly;
+    padding-block: 1rem;
 
     button {
       font-family: inherit;

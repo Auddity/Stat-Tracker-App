@@ -18,7 +18,7 @@ The purpose in building this app is for me to work with vanilla Javascript.  Foc
 #### Newest updates
 Delete individual player fixed.
 
-Can now edit an individual players data. (still bug testing)
+Can now edit an individual players data. (bug testing)
 
 #### Past updates
 Delete individual player added.
@@ -30,9 +30,6 @@ Sanitized inputs. No direct innerHTML.
 Replaced Alert with a Modal when all the input fields haven't been filled.
 
 ## Next Steps
-- Bug test edit fuction
-  - Issue: second time updating a player in a catagory the info overwrites other players in that catagory.
-
 - Add success/error message
 
 - Allow floats (sacks stat)

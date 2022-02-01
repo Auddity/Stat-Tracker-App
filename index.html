@@ -19,116 +19,116 @@
     <header class="container header capitalize">
       <h1 class="title">team stat tracker</h1>
       <h2 class="sub-title">football</h2>
-    </header>
-    <!-- input -->
-    <section class="form-container container capitalize" aria-label="Enter player data">
-      <form class="form" id="form">
-        <label for="player-name" class="form-control">
-          <p>enter players name</p>
-          <input type="text" id="player-name">
-        </label>
-        <label for="positions" class="form-control">
-          <p>select players position</p>
-          
-          <select id="positions">
-            <option 
-              value="Quarter Back" 
-              data-short="qb">
-                Quarter Back
-            </option>
-            <option 
-              value="Running Back" 
-              data-short="rb">
-                Running Back
-            </option>
-            <option 
-              value="Wide Receiver" 
-              data-short="wr">
-                Wide Receiver
-            </option>
-            <option 
-              value="Tight End" 
-              data-short="te">
-                Tight End
-            </option>
-            <option 
-              value="Defensive End" 
-              data-short="de">
-                Defensive End
-            </option>
-            <option 
-              value="Defensive Tackle" 
-              data-short="dt">
-                Defensive Tackle
-            </option>
-            <option 
-              value="Linebacker" 
-              data-short="lb">
-                Linebacker
-            </option>
-            <option 
-              value="Corner Back" 
-              data-short="cb">
-                Corner Back
-            </option>
-            <option 
-              value="Safety" 
-              data-short="s">
-                Safety
-            </option>
-          </select>
-        </label>
-        
-        <label for="stat-value" class="form-control">
-          <p>enter stat value</p>
-          <input type="number" id="stat-value">
-        </label>
-  
-        <label for="stat" class="form-control">
-          <p>select stat type</p>
-          <select id="stat">
-            <option 
-              value="Rushing Yards"
-              data-short="yds">
-                Rushing Yards
+      <!-- input -->
+      <section class="form-container container capitalize" aria-label="Enter player data">
+        <form class="form" id="form">
+          <label for="player-name" class="form-control">
+            <p>enter players name</p>
+            <input type="text" id="player-name">
+          </label>
+          <label for="positions" class="form-control">
+            <p>select players position</p>
+            
+            <select id="positions">
+              <option 
+                value="Quarter Back" 
+                data-short="qb">
+                  Quarter Back
               </option>
-            <option 
-              value="Receiving Yards"
-              data-short="yds">
-                Receiving Yards
+              <option 
+                value="Running Back" 
+                data-short="rb">
+                  Running Back
               </option>
-            <option 
-              value="Sacks"
-              data-short="sacks">
-                Sacks
-            </option>
-            <option 
-              value="Interceptions"
-              data-short="ints">
-                Interceptions
+              <option 
+                value="Wide Receiver" 
+                data-short="wr">
+                  Wide Receiver
+              </option>
+              <option 
+                value="Tight End" 
+                data-short="te">
+                  Tight End
+              </option>
+              <option 
+                value="Defensive End" 
+                data-short="de">
+                  Defensive End
+              </option>
+              <option 
+                value="Defensive Tackle" 
+                data-short="dt">
+                  Defensive Tackle
+              </option>
+              <option 
+                value="Linebacker" 
+                data-short="lb">
+                  Linebacker
+              </option>
+              <option 
+                value="Corner Back" 
+                data-short="cb">
+                  Corner Back
+              </option>
+              <option 
+                value="Safety" 
+                data-short="s">
+                  Safety
               </option>
             </select>
-        </label>
-  
-        <div class="form-control btn-container">
-          <button 
-            type="submit" 
-            class="capitalize submit-btn" 
-            id="submit-btn">
-              submit
-          </button>
-          <button 
-            type="reset" 
-            class="capitalize clear-btn" 
-            id="clear-btn">
-              clear all stats
-          </button>
-        </div>
-      </form>
-    </section>
+          </label>
+          
+          <label for="stat-value" class="form-control">
+            <p>enter stat value</p>
+            <input type="number" id="stat-value">
+          </label>
+    
+          <label for="stat" class="form-control">
+            <p>select stat type</p>
+            <select id="stat">
+              <option 
+                value="Rushing Yards"
+                data-short="yds">
+                  Rushing Yards
+                </option>
+              <option 
+                value="Receiving Yards"
+                data-short="yds">
+                  Receiving Yards
+                </option>
+              <option 
+                value="Sacks"
+                data-short="sacks">
+                  Sacks
+              </option>
+              <option 
+                value="Interceptions"
+                data-short="ints">
+                  Interceptions
+                </option>
+              </select>
+          </label>
+    
+          <div class="form-control btn-container">
+            <button 
+              type="submit" 
+              class="capitalize submit-btn" 
+              id="submit-btn">
+                submit
+            </button>
+            <button 
+              type="reset" 
+              class="capitalize clear-btn" 
+              id="clear-btn">
+                clear all stats
+            </button>
+          </div>
+        </form>
+      </section>
+    </header>
   </div>
   <!-- display -->
-  <section class="display container capitalize" id="display">
+  <main class="display container capitalize" id="display">
     <div class="catagory" id="rushing">
       <header class="catagory-header">
         <h2>rushing leaders</h2>
@@ -167,7 +167,7 @@
       </header>
 
     </div>
-  </section>
+  </main>
   
   <!-- Modals -->
   <section class="modal capitalize" id="err-modal">

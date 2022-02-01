@@ -123,7 +123,7 @@ class UI {
       editPlayerBtn.addEventListener('click', e => {
         const targetName = e.currentTarget.getAttribute('data-name');
         const targetStatType = e.currentTarget.parentElement.parentElement.getAttribute('data-stat-type');
-
+        
         this.editPlayerModalContent(targetName, targetStatType);
       });
 
@@ -291,6 +291,10 @@ getElement('form').addEventListener('submit', e => {
   ui.clearInputFields();
 });
 
+const modalBg = () => {
+  document.body.classList.toggle('modal-bg');
+}
+
 // display storage on page load
 document.addEventListener('DOMContentLoaded', () => {
   let players = Store.getPlayerData();
@@ -302,6 +306,7 @@ getElement('clear-btn').addEventListener('click', () => Store.deleteAllPlayerDat
 getElement('err-close').addEventListener('click', () => errModal.classList.remove('open'));
 getElement('edit-close').addEventListener('click', () => {
   editModal.classList.remove('open');
+  modalBg();
   const playerContainers = modalContent.querySelectorAll('.player-container');
   playerContainers.forEach(container => {
     modalContent.removeChild(container);
@@ -315,6 +320,7 @@ for(let btn of editBtns) {
     const btnCatagory = btn.dataset.catagory;
     if(btn) ui.editModalContent(btnCatagory);
     editModal.classList.add('open');
+    modalBg();
     window.scrollTo({ top: 0 })
   });
 };
