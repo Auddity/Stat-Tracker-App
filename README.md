@@ -2,7 +2,7 @@
 
 This is a current **work in progress**.
 
-update -- 1/28/21 9:15am EST
+update -- 2/8/21 4:30am EST
 
 [Live Site](https://stat-tracker-app.vercel.app/)
 
@@ -16,16 +16,12 @@ The purpose in building this app is for me to work with vanilla Javascript.  Foc
 
 ## Current Status
 #### Newest updates
-Delete individual player fixed.
-
-Can now edit an individual players data. (bug testing)
+Background images added, some minor styling to go with it.
 
 #### Past updates
-Delete individual player added.
+Can now edit an individual players data. (bug testing)
 
-Edit player modal added.
-
-Sanitized inputs. No direct innerHTML.
+Edit & Delete player modal added.
 
 Replaced Alert with a Modal when all the input fields haven't been filled.
 
@@ -36,14 +32,12 @@ Replaced Alert with a Modal when all the input fields haven't been filled.
 
 - Change DOM population from a page reload.
 
-- Determine Color Scheme / Find Photo backgrounds
-
-- Build database so as to not rely on Local Storage
+- Turn single JS file into modules
 
 ## Future Function & Design Goals
 Currently I'm working only in football statistics.  Future features will include more sports: Basketball, Baseball, Golf.
 
-Make it look appealing.
+Build a database to store the data in.
 
 ## Misc Notes & Info
 Planning is important, but how do you plan when you don't know what's needed?  -  By going through this project step by step I've learned of things that are necessary that I wouldn't of otherwise thought of.
