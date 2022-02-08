@@ -1,7 +1,9 @@
 .header {
+  position: relative;
   font-family: 'Bebas Neue', sans-serif;
   letter-spacing: .3rem;
   font-size: 2rem;
   margin-block: 3rem;
   text-align: center;
+  z-index: 1;
 }
