@@ -2,16 +2,8 @@
 
 // iPad
 @include mx.mq(810px) {
-  .flex-container {
-    display: flex;
-    align-items: center;
-    width: 80%;
-    padding-block-start: 4rem;
-    margin-inline: auto;
-
-    .header {
-      flex-shrink: 2;
-
+  .header {
+    &-titles {
       .title {
         font-size: 5rem;
         margin-block-start: -8rem;
@@ -28,5 +20,18 @@
     grid-template-columns: 1fr 1fr;
     gap: 2rem;
     width: 90%;
+  }
+}
+
+// iPad Horiz
+@include mx.mq(1080px) {
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+    &-titles {
+      flex-basis: 50%;
+    }
   }
 }
