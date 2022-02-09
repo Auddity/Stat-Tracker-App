@@ -18,14 +18,19 @@
       }
   
       &.btn-container {
-        width: min(100%, 500px);
+        width: min(100%, 350px);
         padding-block-start: 1.5rem;
         margin-inline: auto;
         flex-direction: row;
         justify-content: space-around;
+        gap: 3rem;
   
-        button {
-          font-family: inherit;
+        .submit-btn {
+          flex-grow: 2;
+          flex: 2 0 50px;
+        }
+        .clear-btn {
+          flex: 1 1 50px;
         }
       }
     }
