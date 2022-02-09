@@ -1,3 +1,4 @@
+@use '../abstracts/variables' as v;
 @use '../abstracts/mixins' as mx;
 
 .display {
@@ -6,12 +7,75 @@
 
   .catagory {
     width: min(100%, 775px);
+    background-color: darkgrey;
     padding: 2rem 2rem;
     border: 1px solid #333;
     border-radius: 1rem;
     margin-block-end: 2rem;
     margin-inline: auto;
-    background-color: darkgrey;
+    border: 2px solid silver;
+    box-shadow: v.$box-shadow;
+    overflow: hidden;
+
+    &#rushing {
+      position: relative;
+      background: 
+        url('../images/chris-chow-xIFXBup5Cm4-unsplash.jpg')
+        no-repeat
+        center / cover;
+      &::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background-color: rgba(0,0,0,0.8);
+        z-index: 0;
+      }
+    }
+
+    &#receiving {
+      position: relative;
+      background: 
+        url('../images/pexels-pixabay-209961.jpg')
+        no-repeat
+        center / cover;
+      &::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background-color: rgba(0,0,0,0.8);
+        z-index: 0;
+      }
+    }
+
+    &#sacks {
+      position: relative;
+      background: 
+        url('../images/john-torcasio-P2rqmExt74A-unsplash.jpg')
+        no-repeat
+        center / cover;
+      &::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background-color: rgba(0,0,0,0.8);
+        z-index: 0;
+      }
+    }
+
+    &#ints {
+      position: relative;
+      background: 
+        url('../images/leah-hetteberg-HiDcs2pIU3k-unsplash.jpg')
+        no-repeat
+        center / cover;
+      &::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background-color: rgba(0,0,0,0.8);
+        z-index: 0;
+      }
+    }
 
     &-header {
       position: relative;
@@ -26,12 +90,14 @@
 // For both main page & modals
 .player-container {
   @include mx.flexBetween;
+  position: relative;
   width: clamp(70%, 100%, 50rem);
   padding-inline: .7rem;
   padding-block: .2rem;
   margin-inline: auto;
   margin-block: .5rem;
-  color: black;
+  color: #fefefe;
+  z-index: 1;
 
   .player {
     font-weight: 700;
