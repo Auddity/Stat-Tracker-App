@@ -10,7 +10,6 @@ button {
   box-shadow: v.$box-shadow;
 
   &.submit-btn {
-    // padding-inline: 5rem;
     background-color: v.$green-safe;
   }
 
@@ -46,5 +45,16 @@ button {
     background: v.$green-safe;
     font-size: 1.5rem;
     font-weight: 700;
+  }
+
+  &.cancel-delete {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    color: black;
+
+    &:hover::after {
+      content: 'close window and keep data';
+    }
   }
 }

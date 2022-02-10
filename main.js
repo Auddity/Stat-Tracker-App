@@ -22,6 +22,7 @@ const editPlayerModal = getElement('edit-player-modal');
 const modalContent = getElement('edit-modal-content');
 const editPlayerModalContent = getElement('edit-player-modal-content');
 const updateForm = getElement('edit-player-form');
+const deleteWarning = getElement('delete-all-warning');
 // Update Form Inputs
 const updateNameInput = getElement('update-player-name');
 const updatePosInput = getElement('update-positions');
@@ -269,6 +270,10 @@ class Store {
   };
 };
 
+const modalBg = () => {
+  document.body.classList.toggle('modal-bg');
+}
+
 // Event Listeners
 // initial submit
 getElement('form').addEventListener('submit', e => {
@@ -291,10 +296,6 @@ getElement('form').addEventListener('submit', e => {
   ui.clearInputFields();
 });
 
-const modalBg = () => {
-  document.body.classList.toggle('modal-bg');
-}
-
 // display storage on page load
 document.addEventListener('DOMContentLoaded', () => {
   let players = Store.getPlayerData();
@@ -302,8 +303,26 @@ document.addEventListener('DOMContentLoaded', () => {
   ui.setOrder(players);
 });
 
-getElement('clear-btn').addEventListener('click', () => Store.deleteAllPlayerData());
+// Delete Warning Modal
+getElement('clear-btn').addEventListener('click', () => {
+  deleteWarning.classList.add('open');
+  modalBg();
+});
+getElement('cancel-delete').addEventListener('click', () => {
+  modalBg();
+  deleteWarning.classList.remove('open');
+});
+getElement('delete-all').addEventListener('click', () => {
+  Store.deleteAllPlayerData();
+  deleteWarning.classList.remove('open');
+  modalBg();
+});
+
+
+// Close Error Window
 getElement('err-close').addEventListener('click', () => errModal.classList.remove('open'));
+
+// Close Edit Modal
 getElement('edit-close').addEventListener('click', () => {
   editModal.classList.remove('open');
   modalBg();

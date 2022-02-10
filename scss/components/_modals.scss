@@ -1,4 +1,5 @@
 @use '../abstracts/mixins' as mx;
+@use '../abstracts/variables' as v;
 
 // General Styles
 body.modal-bg {
@@ -58,6 +59,24 @@ body.modal-bg {
     display: flex;
     flex-direction: column-reverse;
     padding: 2.5rem 2rem;
+  }
+
+  // Delete Warning Modal
+  &.delete-all-warning {
+    .modal-content {
+      position: relative;
+      font-size: 1.8rem;
+      line-height: 1.8;
+      color: black;
+      padding-inline: 1rem;
+      border: 4px solid v.$red-danger;
+
+      h3 {
+        font-size: 3rem;
+        color: v.$red-danger;
+        text-shadow: v.$box-shadow;
+      }
+    }
   }
 }
 

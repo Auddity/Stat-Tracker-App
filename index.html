@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Font -->
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=PT+Sans+Caption:wght@400;700&display=swap" rel="stylesheet">
@@ -92,45 +92,20 @@
               data-short="yds">
                 Rushing Yards
               </option>
-              <option 
-                value="Running Back" 
-                data-short="rb">
-                  Running Back
+            <option 
+              value="Receiving Yards"
+              data-short="yds">
+                Receiving Yards
               </option>
-              <option 
-                value="Wide Receiver" 
-                data-short="wr">
-                  Wide Receiver
-              </option>
-              <option 
-                value="Tight End" 
-                data-short="te">
-                  Tight End
-              </option>
-              <option 
-                value="Defensive End" 
-                data-short="de">
-                  Defensive End
-              </option>
-              <option 
-                value="Defensive Tackle" 
-                data-short="dt">
-                  Defensive Tackle
-              </option>
-              <option 
-                value="Linebacker" 
-                data-short="lb">
-                  Linebacker
-              </option>
-              <option 
-                value="Corner Back" 
-                data-short="cb">
-                  Corner Back
-              </option>
-              <option 
-                value="Safety" 
-                data-short="s">
-                  Safety
+            <option 
+              value="Sacks"
+              data-short="sacks">
+                Sacks
+            </option>
+            <option 
+              value="Interceptions"
+              data-short="ints">
+                Interceptions
               </option>
             </select>
         </label>
@@ -195,21 +170,22 @@
   </main>
   
   <!-- Modals -->
-  <section class="modal capitalize" id="err-modal">
+  <!-- Incomplete form modal -->
+  <section class="modal capitalize" id="err-modal" aria-label="incomplete form warning">
     <div class="modal-content">
       <h3 class="message">Please fill out all input fields.</h3>
       <button type="button" class="close-btn" id="err-close">close</button>
     </div>
   </section>
-
-  <section class="modal edit-modal capitalize" id="edit-modal">
+  <!-- Edit list modal -->
+  <section class="modal edit-modal capitalize" id="edit-modal" aria-label="list of players to edit">
     <div class="modal-content" id="edit-modal-content">
       
       <button type="button" class="close-btn" id="edit-close">close</button>
     </div>
   </section>
-
-  <section class="modal edit-player-modal capitalize" id="edit-player-modal">
+  <!-- Edit player modal -->
+  <section class="modal edit-player-modal capitalize" id="edit-player-modal" aria-label="form to edit individual player">
     <div class="modal-content" id="edit-player-modal-content">
       <div class="form-container"></div>
       <form class="form edit-player-form" id="edit-player-form">
@@ -311,6 +287,15 @@
           </button>
         </div>
       </form>
+    </div>
+  </section>
+  <!-- Delete all Data Warning Modal -->
+  <section class="modal delete-all-warning" id="delete-all-warning" aria-label="delete all data">
+    <div class="modal-content">
+      <button type="button" class="cancel-delete" id="cancel-delete">X<br></button>
+      <h3 class="uppercase">warning!</h3>
+      <p>This will delete all player data. Click the 'Delete' button to confirm</p>
+      <button type="reset" class="capitalize clear-btn" id="delete-all">delete</button>
     </div>
   </section>
 
