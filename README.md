@@ -28,11 +28,9 @@ Can now edit an individual players data. (bug testing)
 ## Next Steps
 - Add success/error message
 
-- Allow floats (sacks stat)
-
 - Change DOM population from a page reload.
 
-- Turn single JS file into modules
+- Turn single JS file into modules (partial)
 
 ## Future Function & Design Goals
 Currently I'm working only in football statistics.  Future features will include more sports: Basketball, Baseball, Golf.
