@@ -2,7 +2,7 @@
 
 This is a current **work in progress**.
 
-update -- 2/9/22 4:30am EST
+update -- 2/19/22 2:16pm EST
 
 [Live Site](https://stat-tracker-app.vercel.app/)
 
@@ -16,14 +16,14 @@ The purpose in building this app is for me to work with vanilla Javascript.  Foc
 
 ## Current Status
 #### Newest updates
+Allow half steps on number input & created module for getElement function
+
 Added Warning Modal for deleting ALL player data.
 
+#### Past updates
 Background images added, some minor styling to go with it.
 
-#### Past updates
 Can now edit an individual players data. (bug testing)
-
-Edit & Delete player modal added.
 
 ## Next Steps
 - Add success/error message
