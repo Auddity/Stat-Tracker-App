@@ -1,33 +1,29 @@
-const getElement = selector => {
-  const element = document.getElementById(selector);
-  if(element) return element;
-  throw new Error(`Please check ${selector}, element not found.`);
-};
+import get from "./util/getElement.js";
 
 // Initial Submit Form Inputs
-const nameInput = getElement('player-name');
-const valueInput = getElement('stat-value');
-const posSelect = getElement('positions');
-const statSelect = getElement('stat');
+const nameInput = get('player-name');
+const valueInput = get('stat-value');
+const posSelect = get('positions');
+const statSelect = get('stat');
 // Display Catagories
-const rushingContainer = getElement('rushing');
-const receivingContainer = getElement('receiving');
-const sacksContainer = getElement('sacks');
-const intContainer = getElement('ints');
+const rushingContainer = get('rushing');
+const receivingContainer = get('receiving');
+const sacksContainer = get('sacks');
+const intContainer = get('ints');
 // Modal Elements
-const errModal = getElement('err-modal');
+const errModal = get('err-modal');
 const editBtns = document.querySelectorAll('.edit-btn');
-const editModal = getElement('edit-modal');
-const editPlayerModal = getElement('edit-player-modal');
-const modalContent = getElement('edit-modal-content');
-const editPlayerModalContent = getElement('edit-player-modal-content');
-const updateForm = getElement('edit-player-form');
-const deleteWarning = getElement('delete-all-warning');
+const editModal = get('edit-modal');
+const editPlayerModal = get('edit-player-modal');
+const modalContent = get('edit-modal-content');
+const editPlayerModalContent = get('edit-player-modal-content');
+const updateForm = get('edit-player-form');
+const deleteWarning = get('delete-all-warning');
 // Update Form Inputs
-const updateNameInput = getElement('update-player-name');
-const updatePosInput = getElement('update-positions');
-const updateStatValueInput = getElement('update-stat-value');
-const updateStatTypeInput = getElement('update-stat');
+const updateNameInput = get('update-player-name');
+const updatePosInput = get('update-positions');
+const updateStatValueInput = get('update-stat-value');
+const updateStatTypeInput = get('update-stat');
 
 class Player {
   constructor(name, pos, value, statShort, statType) {
@@ -78,7 +74,7 @@ class UI {
     });
   };
   
-  setOrder(players, ) {
+  setOrder(players) {
     players.sort((a, b) => b.value - a.value);
     this.updateDOM(players);
   };
@@ -95,7 +91,7 @@ class UI {
 
   // Modals Display
   editModalContent(btnCatagory) {
-    let players = Store.getPlayerData();
+    let players = storedData();
     let filteredPlayers = players.filter(player => player.statType === btnCatagory).sort((a, b) => a.value - b.value);
     filteredPlayers.forEach(player => {
       let { name, pos, value, statShort, statType } = player;
@@ -139,9 +135,7 @@ class UI {
   };
 
   editPlayerModalContent(targetName, targetStatType) {
-    let players = Store.getPlayerData();
-    // TODO: Refactor - objMatch is used in multiple functions
-    // TODO: Also, can I turn any of these functions into a method to use on an object?
+    let players = storedData();
     const objMatch = players.find(({ name, statType }) => {
       return name === targetName && statType === targetStatType;
     });
@@ -210,7 +204,7 @@ class Store {
   };
 
   static updatePlayerData(player) {
-    let players = Store.getPlayerData();
+    let players = storedData();
     const objMatch = players.find(({ name, statType }) => {
       return name === player.name && statType === player.statType;
     });
@@ -234,7 +228,7 @@ class Store {
           statShortUpdate = updateStatTypeInput.options.item(updateStatTypeInput.selectedIndex).getAttribute('data-short'),
           statTypeUpdate = updateStatTypeInput.options.item(updateStatTypeInput.selectedIndex).value;
 
-    let players = this.getPlayerData();
+    let players = storedData();
 
     players = players.map(obj => {
       if(obj.name === objMatch.name && obj.statType === objMatch.statType) {
@@ -254,7 +248,7 @@ class Store {
   };
 
   static deletePlayer(targetName, targetStatType) {
-    let players = this.getPlayerData();
+    let players = storedData();
     players = players.filter(obj => {
       if(obj.name !== targetName || obj.statType !== targetStatType) {
         return obj;
@@ -276,7 +270,7 @@ const modalBg = () => {
 
 // Event Listeners
 // initial submit
-getElement('form').addEventListener('submit', e => {
+get('form').addEventListener('submit', e => {
   e.preventDefault();
   const name = nameInput.value,
         value = valueInput.value,
@@ -304,15 +298,15 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // Delete Warning Modal
-getElement('clear-btn').addEventListener('click', () => {
+get('clear-btn').addEventListener('click', () => {
   deleteWarning.classList.add('open');
   modalBg();
 });
-getElement('cancel-delete').addEventListener('click', () => {
+get('cancel-delete').addEventListener('click', () => {
   modalBg();
   deleteWarning.classList.remove('open');
 });
-getElement('delete-all').addEventListener('click', () => {
+get('delete-all').addEventListener('click', () => {
   Store.deleteAllPlayerData();
   deleteWarning.classList.remove('open');
   modalBg();
@@ -320,10 +314,10 @@ getElement('delete-all').addEventListener('click', () => {
 
 
 // Close Error Window
-getElement('err-close').addEventListener('click', () => errModal.classList.remove('open'));
+get('err-close').addEventListener('click', () => errModal.classList.remove('open'));
 
 // Close Edit Modal
-getElement('edit-close').addEventListener('click', () => {
+get('edit-close').addEventListener('click', () => {
   editModal.classList.remove('open');
   modalBg();
   const playerContainers = modalContent.querySelectorAll('.player-container');
@@ -345,7 +339,7 @@ for(let btn of editBtns) {
 };
 
 // close edit player modal (cancel edit)
-getElement('edit-close-btn').addEventListener('click', () => {
+get('edit-close-btn').addEventListener('click', () => {
   const playerContainer = editPlayerModalContent.querySelector('.player-container');
   editPlayerModalContent.removeChild(playerContainer);
   editPlayerModal.classList.remove('open');
