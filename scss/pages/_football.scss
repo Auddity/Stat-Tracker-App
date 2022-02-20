@@ -1,0 +1,140 @@
+@use '../abstracts/variables' as v;
+@use '../abstracts/mixins' as mx;
+
+.football-body {
+  background-color: v.$football-bg;
+  background: 
+    url('../images/ben-hershey-eo3ePy_iWoE-unsplash.jpg')
+    no-repeat
+    center / cover;
+
+  &::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-color: hsla(86, 30%, 18%, 0.658);
+    height: 100%;
+  }
+
+  .header {
+    .title-fb {
+      color: v.$white;
+    }
+
+    p {
+      color: v.$white;
+    }
+  }
+
+  .display {
+    margin-block-start: 4.5rem;
+    height: auto;
+
+    .catagory {
+      background-color: darkgrey;
+      border: 1px solid #333;
+      margin-block-end: 2rem;
+      margin-inline: auto;
+      border: 2px solid silver;
+      overflow: hidden;
+  
+      &#rushing {
+        position: relative;
+        background: 
+          url('../images/chris-chow-xIFXBup5Cm4-unsplash.jpg')
+          no-repeat
+          center / cover;
+        &::before {
+          content: '';
+          position: absolute;
+          inset: 0;
+          background-color: rgba(0,0,0,0.8);
+          z-index: 0;
+        }
+      }
+  
+      &#receiving {
+        position: relative;
+        background: 
+          url('../images/pexels-pixabay-209961.jpg')
+          no-repeat
+          center / cover;
+        &::before {
+          content: '';
+          position: absolute;
+          inset: 0;
+          background-color: rgba(0,0,0,0.8);
+          z-index: 0;
+        }
+      }
+  
+      &#sacks {
+        position: relative;
+        background: 
+          url('../images/john-torcasio-P2rqmExt74A-unsplash.jpg')
+          no-repeat
+          center / cover;
+        &::before {
+          content: '';
+          position: absolute;
+          inset: 0;
+          background-color: rgba(0,0,0,0.8);
+          z-index: 0;
+        }
+      }
+  
+      &#ints {
+        position: relative;
+        background: 
+          url('../images/leah-hetteberg-HiDcs2pIU3k-unsplash.jpg')
+          no-repeat
+          center / cover;
+        &::before {
+          content: '';
+          position: absolute;
+          inset: 0;
+          background-color: rgba(0,0,0,0.8);
+          z-index: 0;
+        }
+      }
+  
+      &-header {
+        position: relative;
+        @extend %flex;
+        justify-content: space-around;
+        text-align: center;
+        padding-block-end: 1rem;
+      }
+    }
+  }
+
+  // For both main page & modals
+  .player-container {
+    @include mx.flexBetween;
+    position: relative;
+    width: clamp(70%, 100%, 50rem);
+    padding-inline: .7rem;
+    padding-block: .2rem;
+    margin-inline: auto;
+    margin-block: .5rem;
+    color: #fefefe;
+    z-index: 1;
+
+    .player {
+      font-weight: 700;
+    }
+
+    span {
+      margin-inline-start: .5rem;
+
+      &.pos {
+        font-weight: 500;
+        font-size: 1.2rem;
+      }
+
+      &.value {
+        font-weight: 700;
+      }
+    }
+  }
+}

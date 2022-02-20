@@ -1,0 +1,54 @@
+@use '../abstracts/variables' as v;
+
+.header {
+  .title {
+    color: v.$title;
+    margin-block-start: 6rem;
+  }
+
+  p {
+    color: v.$title;
+    font-size: 2.5rem;
+    margin-block-start: 2rem;
+  }
+}
+
+.card-container {
+  width: 100%;
+  margin-inline: auto;
+
+  .sport {
+    position: relative;
+    background-color: v.$card-bg;
+    text-align: center;
+    letter-spacing: 1.4px;
+    margin-block-end: 4rem;
+    
+    &:not(:first-child)::after {
+      content: 'Comming Soon!';
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 5rem;
+      background-color: rgba($color: #000000, $alpha: .9);
+      border-radius: inherit;
+    }
+    
+    h2, p {
+      padding-block-start: 2rem;
+      color: hsl(36, 81%, 94%);
+    }
+    
+    h2 {
+      font-size: 2rem;
+    }
+
+    &:first-child {
+      margin-block-start: 6rem;
+    }
+  }
+}

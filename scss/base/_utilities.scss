@@ -1,3 +1,8 @@
+.container {
+  width: 80%;
+  margin-inline: auto;
+}
+
 .capitalize {
   text-transform: capitalize;
 }
@@ -8,4 +13,11 @@
 
 .secondary-font-size {
   font-size: 1.4rem;
+}
+
+.home {
+  position: relative;
+  color: inherit;
+  padding-block-start: 1rem;
+  padding-inline-start: 1rem;
 }

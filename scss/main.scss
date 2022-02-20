@@ -3,6 +3,9 @@
 @use './components/buttons';
 @use './layout/header';
 @use './layout/form';
-@use './layout/display';
+@use './layout/mainBody';
 @use './components/modals';
 @use './layout/responsive';
+
+@use './pages/landing';
+@use './pages/football';

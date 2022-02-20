@@ -12,21 +12,15 @@ html {
 
 body {
   font-size: 1.6rem;
-  background-color: v.$background;
-  background: 
-    url('../images/ben-hershey-eo3ePy_iWoE-unsplash.jpg')
-    no-repeat
-    center / cover;
   color: v.$white;
   font-family: 'PT Sans Caption', sans-serif;
+}
 
-  &::before {
-    content: '';
-    position: fixed;
-    inset: 0;
-    background-color: hsla(86, 30%, 18%, 0.658);
-    height: 100%;
-  }
+a {
+  display: inline-block;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
 }
 
 input, select {
@@ -48,9 +42,4 @@ select {
   background-color: #fefefe;
   padding-block: .8rem;
   padding-inline: .5rem;
-}
-
-.container {
-  width: 80%;
-  margin-inline: auto;
 }

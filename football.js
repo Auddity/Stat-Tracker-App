@@ -91,7 +91,7 @@ class UI {
 
   // Modals Display
   editModalContent(btnCatagory) {
-    let players = storedData();
+    let players = Store.getPlayerData();
     let filteredPlayers = players.filter(player => player.statType === btnCatagory).sort((a, b) => a.value - b.value);
     filteredPlayers.forEach(player => {
       let { name, pos, value, statShort, statType } = player;
@@ -135,7 +135,7 @@ class UI {
   };
 
   editPlayerModalContent(targetName, targetStatType) {
-    let players = storedData();
+    let players = Store.getPlayerData();
     const objMatch = players.find(({ name, statType }) => {
       return name === targetName && statType === targetStatType;
     });

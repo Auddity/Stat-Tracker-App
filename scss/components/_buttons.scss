@@ -37,8 +37,8 @@ button {
 
   &.edit-player-btn, &.delete-player-btn {
     background: transparent;
-    color: v.$background;
     font-size: 1.5rem;
+    box-shadow: none;
   }
 
   &.update-player-btn {

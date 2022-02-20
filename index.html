@@ -12,293 +12,40 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css">
   <!-- Stylesheets -->
   <link rel="stylesheet" href="./css/main.min.css">
-  <title>Team Stat Tracker</title>
+  <title>Stat & Score Tracker App</title>
 </head>
 <body>
-  <header class="container header capitalize">
-    <div class="header-titles">
-      <h1 class="title">team stat tracker</h1>
-      <h2 class="sub-title">football</h2>
-    </div>
-    <!-- input -->
-    <section class="form-container container capitalize" aria-label="Enter player data">
-      <form class="form" id="form">
-        <label for="player-name" class="form-control">
-          <p>enter players name</p>
-          <input type="text" id="player-name">
-        </label>
-        <label for="positions" class="form-control">
-          <p>select players position</p>
-          
-          <select id="positions">
-            <option 
-              value="Quarter Back" 
-              data-short="qb">
-                Quarter Back
-            </option>
-            <option 
-              value="Running Back" 
-              data-short="rb">
-                Running Back
-            </option>
-            <option 
-              value="Wide Receiver" 
-              data-short="wr">
-                Wide Receiver
-            </option>
-            <option 
-              value="Tight End" 
-              data-short="te">
-                Tight End
-            </option>
-            <option 
-              value="Defensive End" 
-              data-short="de">
-                Defensive End
-            </option>
-            <option 
-              value="Defensive Tackle" 
-              data-short="dt">
-                Defensive Tackle
-            </option>
-            <option 
-              value="Linebacker" 
-              data-short="lb">
-                Linebacker
-            </option>
-            <option 
-              value="Corner Back" 
-              data-short="cb">
-                Corner Back
-            </option>
-            <option 
-              value="Safety" 
-              data-short="s">
-                Safety
-            </option>
-          </select>
-        </label>
-        
-        <label for="stat-value" class="form-control">
-          <p>enter stat value</p>
-          <input type="number" step=".5" id="stat-value">
-        </label>
-  
-        <label for="stat" class="form-control">
-          <p>select stat type</p>
-          <select id="stat">
-            <option 
-              value="Rushing Yards"
-              data-short="yds">
-                Rushing Yards
-              </option>
-            <option 
-              value="Receiving Yards"
-              data-short="yds">
-                Receiving Yards
-              </option>
-            <option 
-              value="Sacks"
-              data-short="sacks">
-                Sacks
-            </option>
-            <option 
-              value="Interceptions"
-              data-short="ints">
-                Interceptions
-              </option>
-            </select>
-        </label>
-  
-        <div class="form-control btn-container">
-          <button 
-            type="submit" 
-            class="capitalize submit-btn" 
-            id="submit-btn">
-              submit
-          </button>
-          <button 
-            type="reset" 
-            class="capitalize clear-btn" 
-            id="clear-btn">
-              delete all
-          </button>
-        </div>
-      </form>
-    </section>
+  <header class="header capitalize">
+    <h1 class="title">sport stat & score tracker</h1>
+    <p>Please select your sport below</p>
   </header>
-  <!-- display -->
-  <main class="display container capitalize" id="display">
-    <div class="catagory" id="rushing">
-      <header class="catagory-header">
-        <h2>rushing leaders</h2>
-        <button type="button" class="edit-btn capitalize" data-catagory="Rushing Yards">
-          edit/Delete <br> player
-        </button>
-      </header>
-    </div>
 
-    <div class="catagory" id="receiving">
-      <header class="catagory-header">
-        <h2>receiving leaders</h2>
-        <button type="button" class="edit-btn capitalize" data-catagory="Receiving Yards">
-          edit/Delete <br> player
-        </button>
-      </header>
-
-    </div>
-
-    <div class="catagory" id="sacks">
-      <header class="catagory-header">
-        <h2>sack leaders</h2>
-        <button type="button" class="edit-btn capitalize" data-catagory="Sacks">
-          edit/Delete <br> player
-        </button>
-      </header>
-
-    </div>
-
-    <div class="catagory" id="ints">
-      <header class="catagory-header">
-        <h2>interception leaders</h2>
-        <button type="button" class="edit-btn capitalize" data-catagory="Interceptions">
-          edit/Delete <br> player
-        </button>
-      </header>
-
-    </div>
-  </main>
-  
-  <!-- Modals -->
-  <!-- Incomplete form modal -->
-  <section class="modal capitalize" id="err-modal" aria-label="incomplete form warning">
-    <div class="modal-content">
-      <h3 class="message">Please fill out all input fields.</h3>
-      <button type="button" class="close-btn" id="err-close">close</button>
-    </div>
-  </section>
-  <!-- Edit list modal -->
-  <section class="modal edit-modal capitalize" id="edit-modal" aria-label="list of players to edit">
-    <div class="modal-content" id="edit-modal-content">
-      
-      <button type="button" class="close-btn" id="edit-close">close</button>
-    </div>
-  </section>
-  <!-- Edit player modal -->
-  <section class="modal edit-player-modal capitalize" id="edit-player-modal" aria-label="form to edit individual player">
-    <div class="modal-content" id="edit-player-modal-content">
-      <div class="form-container"></div>
-      <form class="form edit-player-form" id="edit-player-form">
-
-        <label for="player-name" class="form-control">
-          <p>enter players name</p>
-          <input type="text" id="update-player-name">
-        </label>
-        <label for="positions" class="form-control">
-          <p>select players position</p>
-          
-          <select id="update-positions">
-            <option 
-              value="Quarter Back" 
-              data-short="qb">
-                Quarter Back
-            </option>
-            <option 
-              value="Running Back" 
-              data-short="rb">
-                Running Back
-            </option>
-            <option 
-              value="Wide Receiver" 
-              data-short="wr">
-                Wide Receiver
-            </option>
-            <option 
-              value="Tight End" 
-              data-short="te">
-                Tight End
-            </option>
-            <option 
-              value="Defensive End" 
-              data-short="de">
-                Defensive End
-            </option>
-            <option 
-              value="Defensive Tackle" 
-              data-short="dt">
-                Defensive Tackle
-            </option>
-            <option 
-              value="Linebacker" 
-              data-short="lb">
-                Linebacker
-            </option>
-            <option 
-              value="Corner Back" 
-              data-short="cb">
-                Corner Back
-            </option>
-            <option 
-              value="Safety" 
-              data-short="s">
-                Safety
-            </option>
-          </select>
-        </label>
-        
-        <label for="stat-value" class="form-control">
-          <p>enter stat value</p>
-          <input type="number" step=".5" id="update-stat-value">
-        </label>
-  
-        <label for="stat" class="form-control">
-          <p>select stat type</p>
-          <select id="update-stat">
-            <option 
-              value="Rushing Yards"
-              data-short="yds">
-                Rushing Yards
-              </option>
-            <option 
-              value="Receiving Yards"
-              data-short="yds">
-                Receiving Yards
-              </option>
-            <option 
-              value="Sacks"
-              data-short="sacks">
-                Sacks
-            </option>
-            <option 
-              value="Interceptions"
-              data-short="ints">
-                Interceptions
-              </option>
-            </select>
-        </label>
-
-        <div class="button-container">
-          <button type="submit" class="update-player-btn capitalize">update</button>
-          <button 
-            type="reset" 
-            class="capitalize clear-btn" 
-            id="edit-close-btn">
-              cancel
-          </button>
+  <main class="container">
+    <section class="card-container">
+      <a href="football.html" class="card sport">
+        <div class="sport-header">
+          <h1>Football</h1>
+          <h2>Keep track of your teams stats throughout the season</h2>
+          <p>Rusing Yards, Receiving Yards, Sacks, and Interceptions</p>
         </div>
-      </form>
-    </div>
-  </section>
-  <!-- Delete all Data Warning Modal -->
-  <section class="modal delete-all-warning" id="delete-all-warning" aria-label="delete all data">
-    <div class="modal-content">
-      <button type="button" class="cancel-delete" id="cancel-delete">X<br></button>
-      <h3 class="uppercase">warning!</h3>
-      <p>This will delete all player data. Click the 'Delete' button to confirm</p>
-      <button type="reset" class="capitalize clear-btn" id="delete-all">delete</button>
-    </div>
-  </section>
+      </a>
+      <a href="#" class="card sport">
+        <div class="sport-header">
+          <h1>Golf</h1>
+          <h2>Track your score throughout the day's round</h2>
+          <p>Birdies, Bogeys, Eagles, Par</p>
+        </div>
+      </a>
+      <a href="#" class="card sport">
+        <div class="sport-header">
+          <h1>Basketball</h1>
+          <h2>Keep track of your teams stat throughout the season</h2>
+          <p>Free Throw Percentage, Field Goals, Three Pointers, Assists, Blocks, Steals, Rebounds, Scoring</p>
+        </div>
+      </a>
+    </section>
+  </main>
 
-  <script type="module" src="main.js"></script>
+  <!-- <script type="module" src="app.js"></script> -->
 </body>
 </html>

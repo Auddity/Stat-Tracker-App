@@ -2,42 +2,52 @@
 
 This is a current **work in progress**.
 
-update -- 2/19/22 2:16pm EST
+update -- 2/20/22 3:22pm EST
 
 [Live Site](https://stat-tracker-app.vercel.app/)
 
 ## App Function
-Input a players name, position, stat-value, and stat type.  Then display it on screen sorted in order of stat leaders.
+Keep track of player stats accross multiple sports
+
+For football: input a players name, position, stat-value, and stat type.  Then display it on screen sorted in order of stat leaders.
 
 Data stored to local storage.
 
 ## Purpose
 The purpose in building this app is for me to work with vanilla Javascript.  Focusing on inputing data, storing data in local storage, displaying data, and updating data.
 
+It is also an ever expanding project, thus I'm learning to read my own code (remember how it's working) and refactor my code when necessary.
+
 ## Current Status
 #### Newest updates
-Allow half steps on number input & created module for getElement function
+Created a landing page. Refactored Sass where appropriate.
 
-Added Warning Modal for deleting ALL player data.
+Allow half steps on number input & created module for getElement function.
 
 #### Past updates
+Added Warning Modal for deleting ALL player data.
+
 Background images added, some minor styling to go with it.
 
-Can now edit an individual players data. (bug testing)
+Can now edit an individual players data.
 
 ## Next Steps
-- Add success/error message
+- Add success/error message after submission.
 
 - Change DOM population from a page reload.
 
-- Turn single JS file into modules (partial)
+- Turn single JS file into modules (partial).
+
+- Create a golf round score tracker.
 
 ## Future Function & Design Goals
-Currently I'm working only in football statistics.  Future features will include more sports: Basketball, Baseball, Golf.
+Currently I'm working on golf scores.  Future features will include more sports: Basketball, Baseball.
 
 Build a database to store the data in.
 
 ## Misc Notes & Info
+Having begun creating a multiple page site/app The below comment on planning is growing more in depth. (2/20/22)
+
 Planning is important, but how do you plan when you don't know what's needed?  -  By going through this project step by step I've learned of things that are necessary that I wouldn't of otherwise thought of.
 
 To display corresponding players in edit modal (1/5/2022)

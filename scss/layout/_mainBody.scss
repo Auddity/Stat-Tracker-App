@@ -1,0 +1,13 @@
+@use '../abstracts/variables' as v;
+@use '../abstracts/mixins' as mx;
+
+.card-container {
+  @include mx.flexColumn;
+}
+
+.card {
+  width: min(100%, 775px);
+  padding: 2rem 3rem;
+  border-radius: 1rem;
+  box-shadow: v.$box-shadow;
+}

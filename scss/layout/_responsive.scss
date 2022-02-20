@@ -2,7 +2,13 @@
 
 // iPad
 @include mx.mq(810px) {
-  .header {
+  // landing page
+  // .container {
+  //   margin-inline: auto;
+  // }
+
+  // football page
+  .header-fb {
     &-titles {
       .title {
         font-size: 5rem;
@@ -25,13 +31,24 @@
 
 // iPad Horiz
 @include mx.mq(1080px) {
-  .header {
+  // landing page
+
+
+  // football page
+  .header-fb {
     display: flex;
     align-items: center;
     justify-content: space-between;
     
     &-titles {
       flex-basis: 50%;
+
+      .title-fb {
+        font-size: 5rem;
+      }
+      .sub-title {
+        font-size: 4rem;
+      }
     }
   }
 }

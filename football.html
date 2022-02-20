@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=PT+Sans+Caption:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css">
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="./css/main.min.css">
+  <title>Football Stat Tracker</title>
+</head>
+<body class="football-body">
+  <a href="index.html" class="home capitalize">sport menu</a>
+  <header class="container header header-fb capitalize">
+    <div class="header-fb-titles">
+      <h1 class="title-fb">team stat tracker</h1>
+      <h2 class="sub-title">football</h2>
+    </div>
+    <!-- input -->
+    <section class="form-container container capitalize" aria-label="Enter player data">
+      <form class="form" id="form">
+        <label for="player-name" class="form-control">
+          <p>enter players name</p>
+          <input type="text" id="player-name">
+        </label>
+        <label for="positions" class="form-control">
+          <p>select players position</p>
+          
+          <select id="positions">
+            <option 
+              value="Quarter Back" 
+              data-short="qb">
+                Quarter Back
+            </option>
+            <option 
+              value="Running Back" 
+              data-short="rb">
+                Running Back
+            </option>
+            <option 
+              value="Wide Receiver" 
+              data-short="wr">
+                Wide Receiver
+            </option>
+            <option 
+              value="Tight End" 
+              data-short="te">
+                Tight End
+            </option>
+            <option 
+              value="Defensive End" 
+              data-short="de">
+                Defensive End
+            </option>
+            <option 
+              value="Defensive Tackle" 
+              data-short="dt">
+                Defensive Tackle
+            </option>
+            <option 
+              value="Linebacker" 
+              data-short="lb">
+                Linebacker
+            </option>
+            <option 
+              value="Corner Back" 
+              data-short="cb">
+                Corner Back
+            </option>
+            <option 
+              value="Safety" 
+              data-short="s">
+                Safety
+            </option>
+          </select>
+        </label>
+        
+        <label for="stat-value" class="form-control">
+          <p>enter stat value</p>
+          <input type="number" step=".5" id="stat-value">
+        </label>
+  
+        <label for="stat" class="form-control">
+          <p>select stat type</p>
+          <select id="stat">
+            <option 
+              value="Rushing Yards"
+              data-short="yds">
+                Rushing Yards
+              </option>
+            <option 
+              value="Receiving Yards"
+              data-short="yds">
+                Receiving Yards
+              </option>
+            <option 
+              value="Sacks"
+              data-short="sacks">
+                Sacks
+            </option>
+            <option 
+              value="Interceptions"
+              data-short="ints">
+                Interceptions
+              </option>
+            </select>
+        </label>
+  
+        <div class="form-control btn-container">
+          <button 
+            type="submit" 
+            class="capitalize submit-btn" 
+            id="submit-btn">
+              submit
+          </button>
+          <button 
+            type="reset" 
+            class="capitalize clear-btn" 
+            id="clear-btn">
+              delete all
+          </button>
+        </div>
+      </form>
+    </section>
+  </header>
+  <!-- display -->
+  <main class="display container capitalize" id="display">
+    <div class="card catagory" id="rushing">
+      <header class="catagory-header">
+        <h2>rushing leaders</h2>
+        <button type="button" class="edit-btn capitalize" data-catagory="Rushing Yards">
+          edit/Delete <br> player
+        </button>
+      </header>
+    </div>
+
+    <div class="card catagory" id="receiving">
+      <header class="catagory-header">
+        <h2>receiving leaders</h2>
+        <button type="button" class="edit-btn capitalize" data-catagory="Receiving Yards">
+          edit/Delete <br> player
+        </button>
+      </header>
+
+    </div>
+
+    <div class="card catagory" id="sacks">
+      <header class="catagory-header">
+        <h2>sack leaders</h2>
+        <button type="button" class="edit-btn capitalize" data-catagory="Sacks">
+          edit/Delete <br> player
+        </button>
+      </header>
+
+    </div>
+
+    <div class="card catagory" id="ints">
+      <header class="catagory-header">
+        <h2>interception leaders</h2>
+        <button type="button" class="edit-btn capitalize" data-catagory="Interceptions">
+          edit/Delete <br> player
+        </button>
+      </header>
+
+    </div>
+  </main>
+  
+  <!-- Modals -->
+  <!-- Incomplete form modal -->
+  <section class="modal capitalize" id="err-modal" aria-label="incomplete form warning">
+    <div class="modal-content">
+      <h3 class="message">Please fill out all input fields.</h3>
+      <button type="button" class="close-btn" id="err-close">close</button>
+    </div>
+  </section>
+  <!-- Edit list modal -->
+  <section class="modal edit-modal capitalize" id="edit-modal" aria-label="list of players to edit">
+    <div class="modal-content" id="edit-modal-content">
+      
+      <button type="button" class="close-btn" id="edit-close">close</button>
+    </div>
+  </section>
+  <!-- Edit player modal -->
+  <section class="modal edit-player-modal capitalize" id="edit-player-modal" aria-label="form to edit individual player">
+    <div class="modal-content" id="edit-player-modal-content">
+      <div class="form-container"></div>
+      <form class="form edit-player-form" id="edit-player-form">
+
+        <label for="player-name" class="form-control">
+          <p>enter players name</p>
+          <input type="text" id="update-player-name">
+        </label>
+        <label for="positions" class="form-control">
+          <p>select players position</p>
+          
+          <select id="update-positions">
+            <option 
+              value="Quarter Back" 
+              data-short="qb">
+                Quarter Back
+            </option>
+            <option 
+              value="Running Back" 
+              data-short="rb">
+                Running Back
+            </option>
+            <option 
+              value="Wide Receiver" 
+              data-short="wr">
+                Wide Receiver
+            </option>
+            <option 
+              value="Tight End" 
+              data-short="te">
+                Tight End
+            </option>
+            <option 
+              value="Defensive End" 
+              data-short="de">
+                Defensive End
+            </option>
+            <option 
+              value="Defensive Tackle" 
+              data-short="dt">
+                Defensive Tackle
+            </option>
+            <option 
+              value="Linebacker" 
+              data-short="lb">
+                Linebacker
+            </option>
+            <option 
+              value="Corner Back" 
+              data-short="cb">
+                Corner Back
+            </option>
+            <option 
+              value="Safety" 
+              data-short="s">
+                Safety
+            </option>
+          </select>
+        </label>
+        
+        <label for="stat-value" class="form-control">
+          <p>enter stat value</p>
+          <input type="number" step=".5" id="update-stat-value">
+        </label>
+  
+        <label for="stat" class="form-control">
+          <p>select stat type</p>
+          <select id="update-stat">
+            <option 
+              value="Rushing Yards"
+              data-short="yds">
+                Rushing Yards
+              </option>
+            <option 
+              value="Receiving Yards"
+              data-short="yds">
+                Receiving Yards
+              </option>
+            <option 
+              value="Sacks"
+              data-short="sacks">
+                Sacks
+            </option>
+            <option 
+              value="Interceptions"
+              data-short="ints">
+                Interceptions
+              </option>
+            </select>
+        </label>
+
+        <div class="button-container">
+          <button type="submit" class="update-player-btn capitalize">update</button>
+          <button 
+            type="reset" 
+            class="capitalize clear-btn" 
+            id="edit-close-btn">
+              cancel
+          </button>
+        </div>
+      </form>
+    </div>
+  </section>
+  <!-- Delete all Data Warning Modal -->
+  <section class="modal delete-all-warning" id="delete-all-warning" aria-label="delete all data">
+    <div class="modal-content">
+      <button type="button" class="cancel-delete" id="cancel-delete">X<br></button>
+      <h3 class="uppercase">warning!</h3>
+      <p>This will delete all player data. Click the 'Delete' button to confirm</p>
+      <button type="reset" class="capitalize clear-btn" id="delete-all">delete</button>
+    </div>
+  </section>
+
+  <script type="module" src="football.js"></script>
+</body>
+</html>
