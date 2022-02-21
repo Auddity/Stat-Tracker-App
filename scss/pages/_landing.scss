@@ -23,6 +23,7 @@
     text-align: center;
     letter-spacing: 1.4px;
     margin-block-end: 4rem;
+    border: 5px solid #88A09E;
     
     &:not(:first-child)::after {
       content: 'Comming Soon!';
@@ -49,6 +50,10 @@
 
     &:first-child {
       margin-block-start: 6rem;
+    }
+
+    &:hover {
+      transform: scale(1.03);
     }
   }
 }
