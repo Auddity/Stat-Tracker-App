@@ -2,7 +2,7 @@
 
 This is a current **work in progress**.
 
-update -- 2/20/22 3:22pm EST
+update -- 2/28/22 3:22pm EST
 
 [Live Site](https://stat-tracker-app.vercel.app/)
 
@@ -20,6 +20,8 @@ It is also an ever expanding project, thus I'm learning to read my own code (rem
 
 ## Current Status
 #### Newest updates
+Football bug fix
+
 Created a landing page. Refactored Sass where appropriate.
 
 Allow half steps on number input & created module for getElement function.
@@ -28,8 +30,6 @@ Allow half steps on number input & created module for getElement function.
 Added Warning Modal for deleting ALL player data.
 
 Background images added, some minor styling to go with it.
-
-Can now edit an individual players data.
 
 ## Next Steps
 - Add success/error message after submission.

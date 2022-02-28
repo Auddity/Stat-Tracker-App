@@ -1,4 +1,4 @@
-import get from "./util/getElement.js";
+import get from "../util/getElement.js";
 
 // Initial Submit Form Inputs
 const nameInput = get('player-name');
@@ -198,13 +198,13 @@ class Store {
       statShort:player.statShort, 
       statType:player.statType 
     };
-    let players = Store.getPlayerData();
+    let players = this.getPlayerData();
     players.push(playerData);
     localStorage.setItem('players', JSON.stringify(players));
   };
 
   static updatePlayerData(player) {
-    let players = storedData();
+    let players = this.getPlayerData();
     const objMatch = players.find(({ name, statType }) => {
       return name === player.name && statType === player.statType;
     });
@@ -228,7 +228,7 @@ class Store {
           statShortUpdate = updateStatTypeInput.options.item(updateStatTypeInput.selectedIndex).getAttribute('data-short'),
           statTypeUpdate = updateStatTypeInput.options.item(updateStatTypeInput.selectedIndex).value;
 
-    let players = storedData();
+    let players = this.getStoredData();
 
     players = players.map(obj => {
       if(obj.name === objMatch.name && obj.statType === objMatch.statType) {
