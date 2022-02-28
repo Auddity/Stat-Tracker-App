@@ -248,7 +248,7 @@ class Store {
   };
 
   static deletePlayer(targetName, targetStatType) {
-    let players = storedData();
+    let players = this.getPlayerData();
     players = players.filter(obj => {
       if(obj.name !== targetName || obj.statType !== targetStatType) {
         return obj;
