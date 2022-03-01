@@ -1,0 +1,22 @@
+@use '../abstracts/variables' as v;
+@use '../abstracts/mixins' as mx;
+
+.golf-body {
+  .form {
+    margin-block-end: 5rem;
+    input {
+      border: 3px green solid;
+    }
+  }
+
+  .grid-display {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(1, 120px) 
+      repeat(100, 45px);
+
+    .box {
+      border: 1px black solid;
+    }
+  }
+}
