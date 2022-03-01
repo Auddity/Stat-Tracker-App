@@ -9,14 +9,27 @@
     }
   }
 
-  .grid-display {
-    display: grid;
-    grid-template-columns: repeat(8, 1fr);
-    grid-template-rows: repeat(1, 120px) 
-      repeat(100, 45px);
-
-    .box {
-      border: 1px black solid;
+  .container {
+    width: 92%;
+    .grid-display {
+      display: grid;
+      grid-template-columns: repeat(8, 1fr);
+      grid-template-rows: repeat(1, 120px) 
+        repeat(100, 55px);
+  
+      .cell {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: black;
+        font-size: 1.8rem;
+        border: 1px black solid;
+        
+        &.label {
+          writing-mode: sideways-lr;
+          letter-spacing: 1px;
+        }
+      }
     }
   }
 }
