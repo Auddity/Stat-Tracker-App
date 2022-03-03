@@ -11,3 +11,8 @@ const input = get('player-name');
 
 
 window.document.addEventListener('DOMContentLoaded', createGrid)
+
+form.addEventListener('submit', e => {
+  e.preventDefault();
+  console.log(`${input.value}`);
+})
