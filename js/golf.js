@@ -1,18 +1,65 @@
 import get from "../util/getElement.js";
 import createGrid from "../util/golfDisplay.js";
+;
+const input = get('golfer-name');
 
-const form = get('form');
-const input = get('player-name');
+window.document.addEventListener('DOMContentLoaded', createGrid);
 
-// const playerOne = get('player1');
-// const playerTwo = get('player2');
-// const playerThree = get('player3');
-// const playerFour = get('player4');
+class Golfer {
+  constructor(name, score, handicap) {
+    this.name = name;
+    this.score = score;
+    this.handicap = handicap;
+  }
+}
 
+class UI {
+  updateDom() {
+    const golferOne = get('golfer1');
+    const golferTwo = get('golfer2');
+    const golferThree = get('golfer3');
+    const golferFour = get('golfer4');
 
-window.document.addEventListener('DOMContentLoaded', createGrid)
+    golferOne.textContent = `${input.value}`;
 
-form.addEventListener('submit', e => {
+    input.value = '';
+  }
+}
+
+class Store {
+  static getStoredGolfers() {
+    return localStorage.getItem('golfers') ? JSON.parse(localStorage.getItem('golfers')) : [];
+  }
+
+  static addGolferData(golfer) {
+    const golferData = {
+      name:golfer.name,
+      score:golfer.score,
+      handicap:golfer.handicap
+    }
+    let golfers = this.getStoredGolfers();
+    golfers.push(golferData)
+    localStorage.setItem('golfers', JSON.stringify(golfers));
+  }
+
+  static updateGolfersData(golfer) {
+    let golfers = this.getStoredGolfers();
+    const objMatch = golfers.find(({ name }) => {
+      return name === golfer.name;
+    });
+    if(!objMatch) {
+      this.addGolferData(golfer);
+    } 
+  }
+}
+
+get('form').addEventListener('submit', e => {
   e.preventDefault();
-  console.log(`${input.value}`);
-})
+  const name = input.value;
+  const golfer = new Golfer(name);
+  const ui = new UI;
+
+
+  name === '' ? alert("enter a player's name") : Store.updateGolfersData(golfer), ui.updateDom();
+
+});

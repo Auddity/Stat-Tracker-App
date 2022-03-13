@@ -12,9 +12,9 @@ const createInputCell = () => {
 const createDisplayCell = (y) => {
   const cellEl = document.createElement('div');
   cellEl.className = 'cell';
-
+// temp begin
   cellEl.textContent = `${y}`;
-
+// temp end
   gridDisplay.appendChild(cellEl);
 }
 
@@ -27,10 +27,10 @@ const createLabelRow  = x => {
   if(x === 4) labelEl.textContent = 'Hole';
   if(x === 7) labelEl.textContent = 'Par';
   if(x === 0 || x === 1 || x === 4 || x === 7) labelEl.classList.add('label');
-  if(x === 2) labelEl.setAttribute('id', 'player1');
-  if(x === 3) labelEl.setAttribute('id', 'player2');
-  if(x === 4) labelEl.setAttribute('id', 'player3');
-  if(x === 5) labelEl.setAttribute('id', 'player4');
+  if(x === 2) labelEl.setAttribute('id', 'golfer1');
+  if(x === 3) labelEl.setAttribute('id', 'golfer2');
+  if(x === 4) labelEl.setAttribute('id', 'golfer3');
+  if(x === 5) labelEl.setAttribute('id', 'golfer4');
   gridDisplay.appendChild(labelEl);
 }
 
@@ -54,12 +54,6 @@ const createGrid = () => {
       }
     }
   }
-
-
-  // const playerOne = get('player1');
-  // const playerTwo = get('player2');
-  // const playerThree = get('player3');
-  // const playerFour = get('player4');
 }
 
 export default createGrid;
