@@ -1,9 +1,10 @@
 import get from "../util/getElement.js";
 import createGrid from "../util/golfDisplay.js";
-;
-const input = get('golfer-name');
+import UI from "../util/golfUI.js";
 
 window.document.addEventListener('DOMContentLoaded', createGrid);
+
+const input = get('golfer-name');
 
 class Golfer {
   constructor(name, score, handicap) {
@@ -13,19 +14,21 @@ class Golfer {
   }
 }
 
-class UI {
-  updateDom() {
-    const golferOne = get('golfer1');
-    const golferTwo = get('golfer2');
-    const golferThree = get('golfer3');
-    const golferFour = get('golfer4');
+// // UI (display)
+// class UI {
+//   updateDom() {
+//     const golferOne = get('golfer1');
+//     const golferTwo = get('golfer2');
+//     const golferThree = get('golfer3');
+//     const golferFour = get('golfer4');
 
-    golferOne.textContent = `${input.value}`;
+//     golferOne.textContent = `${input.value}`;
 
-    input.value = '';
-  }
-}
+//     input.value = '';
+//   }
+// }
 
+// Storage
 class Store {
   static getStoredGolfers() {
     return localStorage.getItem('golfers') ? JSON.parse(localStorage.getItem('golfers')) : [];
@@ -53,13 +56,13 @@ class Store {
   }
 }
 
+// Event Listeners
 get('form').addEventListener('submit', e => {
   e.preventDefault();
   const name = input.value;
   const golfer = new Golfer(name);
   const ui = new UI;
 
-
-  name === '' ? alert("enter a player's name") : Store.updateGolfersData(golfer), ui.updateDom();
-
+  // name === '' ? alert("enter a player's name") : Store.updateGolfersData(golfer), ui.updateDom();
+  ui.updateDom();
 });

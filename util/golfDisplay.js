@@ -29,11 +29,10 @@ const createLabelRow  = x => {
   if(x === 0 || x === 1 || x === 4 || x === 7) labelEl.classList.add('label');
   if(x === 2) labelEl.setAttribute('id', 'golfer1');
   if(x === 3) labelEl.setAttribute('id', 'golfer2');
-  if(x === 4) labelEl.setAttribute('id', 'golfer3');
-  if(x === 5) labelEl.setAttribute('id', 'golfer4');
+  if(x === 5) labelEl.setAttribute('id', 'golfer3');
+  if(x === 6) labelEl.setAttribute('id', 'golfer4');
   gridDisplay.appendChild(labelEl);
 }
-
 
 const createGrid = () => {
   let height = 20;
