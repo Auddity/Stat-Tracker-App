@@ -9,12 +9,18 @@ const createInputCell = () => {
   gridDisplay.appendChild(scoreInputEl);
 }
 
+let holeNumber = 1;
 const createDisplayCell = (y) => {
   const cellEl = document.createElement('div');
   cellEl.className = 'cell';
-// temp begin
-  cellEl.textContent = `${y}`;
-// temp end
+  // cellEl.textContent = `${y}`;
+  if(y === 5) {
+    cellEl.textContent = holeNumber;
+    holeNumber += 1;
+  }
+  if(y === 5 && holeNumber === 11) cellEl.textContent = 'OUT';
+  if(y === 5 && holeNumber === 20) cellEl.textContent = 'IN';
+  if(y === 5 && holeNumber === 21) cellEl.textContent = 'TOT'
   gridDisplay.appendChild(cellEl);
 }
 

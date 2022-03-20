@@ -14,20 +14,6 @@ class Golfer {
   }
 }
 
-// // UI (display)
-// class UI {
-//   updateDom() {
-//     const golferOne = get('golfer1');
-//     const golferTwo = get('golfer2');
-//     const golferThree = get('golfer3');
-//     const golferFour = get('golfer4');
-
-//     golferOne.textContent = `${input.value}`;
-
-//     input.value = '';
-//   }
-// }
-
 // Storage
 class Store {
   static getStoredGolfers() {
@@ -63,6 +49,6 @@ get('form').addEventListener('submit', e => {
   const golfer = new Golfer(name);
   const ui = new UI;
 
-  // name === '' ? alert("enter a player's name") : Store.updateGolfersData(golfer), ui.updateDom();
-  ui.updateDom();
+  name === '' ? alert("enter a player's name") : Store.updateGolfersData(golfer), ui.updateDom();
+  // ui.updateDom();
 });
