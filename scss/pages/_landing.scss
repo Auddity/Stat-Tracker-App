@@ -24,8 +24,22 @@
     letter-spacing: 1.4px;
     margin-block-end: 4rem;
     border: 5px solid #88A09E;
+
+    &:nth-child(2)::after {
+      content: 'Under Construction';
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 5rem;
+      background-color: rgba($color: #000000, $alpha: .9);
+      border-radius: inherit;
+    }
     
-    &:not(:first-child)::after {
+    &:nth-child(3)::after {
       content: 'Comming Soon!';
       position: absolute;
       inset: 0;

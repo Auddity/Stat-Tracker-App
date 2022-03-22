@@ -2,12 +2,14 @@
 
 This is a current **work in progress**.
 
-update -- 2/28/22 3:22pm EST
+update -- 3/22/22 
 
 [Live Site](https://stat-tracker-app.vercel.app/)
 
 ## App Function
 Keep track of player stats accross multiple sports
+
+Golf(currently under construction): Enter names and keep track of your golf score throughout you're round.
 
 For football: input a players name, position, stat-value, and stat type.  Then display it on screen sorted in order of stat leaders.
 
@@ -20,25 +22,27 @@ It is also an ever expanding project, thus I'm learning to read my own code (rem
 
 ## Current Status
 #### Newest updates
+Golf Scorecard framework built(mobile view); json file with course data(Maplehurst);
+
 Football bug fix
 
 Created a landing page. Refactored Sass where appropriate.
 
+#### Past updates
 Allow half steps on number input & created module for getElement function.
 
-#### Past updates
 Added Warning Modal for deleting ALL player data.
 
 Background images added, some minor styling to go with it.
 
 ## Next Steps
-- Add success/error message after submission.
+- Populate Yardage, Handicap, & Par from json
 
-- Change DOM population from a page reload.
+- Add success/error message after submission (football).
+
+- Change DOM population from a page reload (football).
 
 - Turn single JS file into modules (partial).
-
-- Create a golf round score tracker.
 
 ## Future Function & Design Goals
 Currently I'm working on golf scores.  Future features will include more sports: Basketball, Baseball.
