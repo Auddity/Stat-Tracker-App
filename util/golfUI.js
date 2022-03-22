@@ -1,6 +1,7 @@
 import get from "./getElement.js";
 
-const input = get('golfer-name');
+const nameInput = get('golfer-name');
+const teeInput = get('tee-box');
 
 // UI (display)
 export default class UI {
@@ -10,16 +11,15 @@ export default class UI {
     const golferThree = get('golfer3');
     const golferFour = get('golfer4');
     const golfers = [golferOne, golferTwo, golferThree, golferFour];
-    const name = input.value;
+    const name = nameInput.value;
     for (let el of golfers) {
       if(el.textContent === '') {
         el.textContent = `${name}`;
         break;
-      } else {
-        console.log('foursome already full');
       }
     }
-    input.value = '';
+    nameInput.value = '';
+    teeInput.value = '';
   }
 }
 

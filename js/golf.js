@@ -4,13 +4,15 @@ import UI from "../util/golfUI.js";
 
 window.document.addEventListener('DOMContentLoaded', createGrid);
 
-const input = get('golfer-name');
+const nameInput = get('golfer-name');
+const teeInput = get('tee-box');
 
 class Golfer {
-  constructor(name, score, handicap) {
+  constructor(name, score, handicap, tee) {
     this.name = name;
     this.score = score;
     this.handicap = handicap;
+    this.tee = tee;
   }
 }
 
@@ -45,10 +47,11 @@ class Store {
 // Event Listeners
 get('form').addEventListener('submit', e => {
   e.preventDefault();
-  const name = input.value;
-  const golfer = new Golfer(name);
+  const name = nameInput.value;
+  const tee = teeInput.value;
+  const golfer = new Golfer(name, tee);
   const ui = new UI;
 
-  name === '' ? alert("enter a player's name") : Store.updateGolfersData(golfer), ui.updateDom();
+  name === '' || tee === '' ? alert("enter a player's name") : Store.updateGolfersData(golfer), ui.updateDom();
   // ui.updateDom();
 });
