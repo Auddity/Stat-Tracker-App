@@ -10,7 +10,7 @@ const createInputCell = () => {
 }
 
 let holeNumber = 1;
-const createDisplayCell = (y) => {
+const createDisplayCell = y => {
   const cellEl = document.createElement('div');
   cellEl.className = 'cell';
   // cellEl.textContent = `${y}`;
