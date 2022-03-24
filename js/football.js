@@ -228,7 +228,7 @@ class Store {
           statShortUpdate = updateStatTypeInput.options.item(updateStatTypeInput.selectedIndex).getAttribute('data-short'),
           statTypeUpdate = updateStatTypeInput.options.item(updateStatTypeInput.selectedIndex).value;
 
-    let players = this.getStoredData();
+    let players = this.getPlayerData();
 
     players = players.map(obj => {
       if(obj.name === objMatch.name && obj.statType === objMatch.statType) {
