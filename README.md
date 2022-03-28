@@ -2,7 +2,7 @@
 
 This is a current **work in progress**.
 
-update -- 3/22/22 
+update -- 3/28/22 
 
 [Live Site](https://stat-tracker-app.vercel.app/)
 
@@ -22,7 +22,9 @@ It is also an ever expanding project, thus I'm learning to read my own code (rem
 
 ## Current Status
 #### Newest updates
-Golf Scorecard framework built(mobile view); json file with course data(Maplehurst);
+Input and display Golfers names.
+
+Golf Scorecard framework built(mobile view); `json` file with course data(Maplehurst);
 
 Football bug fix
 
@@ -36,7 +38,7 @@ Added Warning Modal for deleting ALL player data.
 Background images added, some minor styling to go with it.
 
 ## Next Steps
-- Populate Yardage, Handicap, & Par from json
+- Populate Yardage, Handicap, & Par from `json`
 
 - Add success/error message after submission (football).
 
@@ -49,7 +51,12 @@ Currently I'm working on golf scores.  Future features will include more sports:
 
 Build a database to store the data in.
 
-## Misc Notes & Info
+## Misc Production Notes & Info 
+Something I thought would be simple turned out to be tricky.  Input a name and display it, when all are full have a warning say the foursome is full.  
+  - I started with a regular for..of loop, but 'full' warning poped up even if just one display was full.
+  - Having done a bunch of freeCodeCamp challenges recently that used the `every` method.
+  - Giving it a try the method is used on the array as a conditional.  condition satified 'full' comes up.  If it's not we loop and enter the names. (3/28/22)
+
 Having begun creating a multiple page site/app The below comment on planning is growing more in depth. (2/20/22)
 
 Planning is important, but how do you plan when you don't know what's needed?  -  By going through this project step by step I've learned of things that are necessary that I wouldn't of otherwise thought of.

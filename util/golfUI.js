@@ -12,11 +12,20 @@ export default class UI {
     const golferFour = get('golfer4');
     const golfers = [golferOne, golferTwo, golferThree, golferFour];
     const name = nameInput.value;
-    for(let el of golfers) {
-      
-    }
+
+    if(golfers.every(el => el.textContent !== '')) {
+      // TODO: Append full warning here
+      console.log('full');
+    } else {
+      for(let el of golfers) {
+        if(el.textContent === '') {
+          el.textContent = `${name}`;
+          break;
+        };
+      };
+    };
+
     nameInput.value = '';
     teeInput.value = '';
   }
-}
-
+};
