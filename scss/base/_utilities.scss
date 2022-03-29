@@ -1,4 +1,5 @@
 @use '../abstracts/variables' as v;
+@use '../abstracts/mixins' as mx;
 
 .container {
   width: 80%;
@@ -19,9 +20,11 @@
 
 .home {
   position: relative;
-  color: inherit;
   padding-block-start: 1rem;
   padding-inline-start: 1rem;
+}
+.golf-body .home {
+  color: #010101;
 }
 
 .warning {
