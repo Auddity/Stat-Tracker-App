@@ -1,4 +1,5 @@
 import get from "./getElement.js";
+import alertMessage from "./alerts.js";
 
 const nameInput = get('golfer-name');
 const teeInput = get('tee-box');
@@ -14,8 +15,10 @@ export default class UI {
     const name = nameInput.value;
 
     if(golfers.every(el => el.textContent !== '')) {
-      // TODO: Append full warning here
-      console.log('full');
+      alertMessage(
+        'warning', 
+        'Foursome is full', 
+        get('header'));
     } else {
       for(let el of golfers) {
         if(el.textContent === '') {

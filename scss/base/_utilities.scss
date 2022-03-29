@@ -1,3 +1,5 @@
+@use '../abstracts/variables' as v;
+
 .container {
   width: 80%;
   margin-inline: auto;
@@ -20,4 +22,13 @@
   color: inherit;
   padding-block-start: 1rem;
   padding-inline-start: 1rem;
+}
+
+.warning {
+  color: v.$red-danger;
+  font-size: 3rem;
+}
+
+.success {
+  color: v.$green-safe;
 }
