@@ -52,6 +52,6 @@ get('form').addEventListener('submit', e => {
   const golfer = new Golfer(name, tee);
   const ui = new UI;
 
-  // name === '' || tee === '' ? alert("enter a player's name") : Store.updateGolfersData(golfer), ui.updateDom();
+  name === '' || tee === '' ? alert("enter a player's name") : Store.updateGolfersData(golfer), ui.updateDom();
   ui.updateDom();
 });

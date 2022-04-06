@@ -9,22 +9,26 @@ const createInputCell = () => {
   gridDisplay.appendChild(scoreInputEl);
 }
 
-let holeNumber = 1;
-const createDisplayCell = y => {
+let holeOutNum = 1;
+let holeInNum = 10;
+const createDisplayCell = (y, x) => {
   const cellEl = document.createElement('div');
   cellEl.className = 'cell';
-  // cellEl.textContent = `${y}`;
   if(y === 5) {
-    cellEl.textContent = holeNumber;
-    holeNumber += 1;
+    cellEl.textContent = holeOutNum;
+    holeOutNum++;
   }
-  if(y === 5 && holeNumber === 11) cellEl.textContent = 'OUT';
-  if(y === 5 && holeNumber === 20) cellEl.textContent = 'IN';
-  if(y === 5 && holeNumber === 21) cellEl.textContent = 'TOT'
+  if(y === 5 && x === 9) cellEl.textContent = 'OUT';
+  if(y === 5 && x >= 10) {
+    cellEl.textContent = holeInNum;
+    holeInNum++;
+  }
+  if(y === 5 && x === 19) cellEl.textContent = 'IN';
+  if(y === 5 && x === 20) cellEl.textContent = 'TOT'
   gridDisplay.appendChild(cellEl);
 }
 
-const createLabelRow  = x => {
+const createLabelRow = x => {
   const labelEl = document.createElement('div');
   labelEl.className = 'cell label';
   labelEl.style.background = 'green';
@@ -41,7 +45,7 @@ const createLabelRow  = x => {
 }
 
 const createGrid = () => {
-  let height = 20;
+  let height = 21;
   let width = 8;
 
   for(let i = 0; i < width; i++) {
@@ -51,11 +55,12 @@ const createGrid = () => {
   for(let y = 0; y < height; y++) {
     for(let x = 0; x < width; x++) {
       let inputColumn = x + 1;
-      
+      let row = y;
+
       if(inputColumn === 3 || inputColumn === 4 || inputColumn === 6 || inputColumn === 7) {
         createInputCell();
       } else {
-        createDisplayCell(inputColumn);
+        createDisplayCell(inputColumn, row);
       }
     }
   }

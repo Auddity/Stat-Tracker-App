@@ -1,4 +1,5 @@
 import get from "../util/getElement.js";
+import alertMessage from "../util/alerts.js";
 
 // Initial Submit Form Inputs
 const nameInput = get('player-name');
@@ -201,6 +202,7 @@ class Store {
     let players = this.getPlayerData();
     players.push(playerData);
     localStorage.setItem('players', JSON.stringify(players));
+    // TODO: ui player added alert
   };
 
   static updatePlayerData(player) {
@@ -219,6 +221,7 @@ class Store {
       localStorage.setItem('players', JSON.stringify(players));
     };
     location.reload();
+    // TODO: ui player updated alert
   };
 
   static editStoredPlayerObject(objMatch) {
@@ -245,6 +248,7 @@ class Store {
     editPlayerModal.classList.remove('open');
     editModal.classList.remove('open')
     location.reload();
+    // TODO: player updated alert
   };
 
   static deletePlayer(targetName, targetStatType) {
@@ -256,11 +260,13 @@ class Store {
     });
     localStorage.setItem('players', JSON.stringify(players));
     location.reload();
+    // TODO: player deleted alert
   }
   
   static deleteAllPlayerData() {
     localStorage.clear();
     location.reload();
+    // TODO: All Stats Deleted alert
   };
 };
 
@@ -285,6 +291,7 @@ get('form').addEventListener('submit', e => {
     errModal.classList.add('open');
   } else {
     Store.updatePlayerData(player);
+    alertMessage('success', 'New player added', get('header'));
   };
   
   ui.clearInputFields();

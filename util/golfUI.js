@@ -16,8 +16,8 @@ export default class UI {
 
     if(golfers.every(el => el.textContent !== '')) {
       alertMessage(
-        'warning', 
-        'Foursome is full', 
+        'success', 
+        'Foursome is complete', 
         get('header'));
     } else {
       for(let el of golfers) {

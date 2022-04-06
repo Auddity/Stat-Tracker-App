@@ -6,7 +6,7 @@ const alertMessage = (className, message, parent) => {
 
   setTimeout(() => {
     messPara.remove(className);
-  }, 3500);
+  }, 3800);
 };
 
 export default alertMessage;

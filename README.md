@@ -2,7 +2,7 @@
 
 This is a current **work in progress**.
 
-update -- 3/29/22 10:38AM
+update -- 4/6/2022 11:56AM
 
 [Live Site](https://stat-tracker-app.vercel.app/)
 
@@ -22,27 +22,27 @@ It is also an ever expanding project, thus I'm learning to read my own code (rem
 
 ## Current Status
 #### Newest updates
-JS module for Alert messages
+- Fix Hole Numbering (golf)
 
-Input and display Golfers names.
+- JS module for Alert messages
 
-Golf Scorecard framework built(mobile view); `json` file with course data(Maplehurst);
+- Input and display Golfers names.
 
-Football bug fix
+- Golf Scorecard framework built(mobile view); `json` file with course data(Maplehurst);
 
 #### Past updates
-Created a landing page. Refactored Sass where appropriate.
+- Created a landing page. Refactored Sass where appropriate.
 
-Allow half steps on number input & created module for getElement function.
+- Allow half steps on number input & created module for getElement function.
 
-Added Warning Modal for deleting ALL player data.
+- Added Warning Modal for deleting ALL player data.
 
 ## Next Steps
 - Populate Yardage, Handicap, & Par from `json`
 
 - Add success/error message after submission (football).
-
 - Change DOM population from a page reload (football).
+  - bottom will fix the top.
 
 - Turn single JS file into modules (partial).
 
