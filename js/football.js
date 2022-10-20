@@ -1,30 +1,30 @@
-import get from "../util/getElement.js";
+import { getElement, getAll } from "../util/getElement.js";
 import alertMessage from "../util/alerts.js";
 
 // Initial Submit Form Inputs
-const nameInput = get('player-name');
-const valueInput = get('stat-value');
-const posSelect = get('positions');
-const statSelect = get('stat');
+const nameInput = getElement('player-name');
+const valueInput = getElement('stat-value');
+const posSelect = getElement('positions');
+const statSelect = getElement('stat');
 // Display Catagories
-const rushingContainer = get('rushing');
-const receivingContainer = get('receiving');
-const sacksContainer = get('sacks');
-const intContainer = get('ints');
+const rushingContainer = getElement('rushing');
+const receivingContainer = getElement('receiving');
+const sacksContainer = getElement('sacks');
+const intContainer = getElement('ints');
 // Modal Elements
-const errModal = get('err-modal');
-const editBtns = document.querySelectorAll('.edit-btn');
-const editModal = get('edit-modal');
-const editPlayerModal = get('edit-player-modal');
-const modalContent = get('edit-modal-content');
-const editPlayerModalContent = get('edit-player-modal-content');
-const updateForm = get('edit-player-form');
-const deleteWarning = get('delete-all-warning');
+const errModal = getElement('err-modal');
+const editBtns = getAll('.edit-btn');
+const editModal = getElement('edit-modal');
+const editPlayerModal = getElement('edit-player-modal');
+const modalContent = getElement('edit-modal-content');
+const editPlayerModalContent = getElement('edit-player-modal-content');
+const updateForm = getElement('edit-player-form');
+const deleteWarning = getElement('delete-all-warning');
 // Update Form Inputs
-const updateNameInput = get('update-player-name');
-const updatePosInput = get('update-positions');
-const updateStatValueInput = get('update-stat-value');
-const updateStatTypeInput = get('update-stat');
+const updateNameInput = getElement('update-player-name');
+const updatePosInput = getElement('update-positions');
+const updateStatValueInput = getElement('update-stat-value');
+const updateStatTypeInput = getElement('update-stat');
 
 class Player {
   constructor(name, pos, value, statShort, statType) {
@@ -276,7 +276,7 @@ const modalBg = () => {
 
 // Event Listeners
 // initial submit
-get('form').addEventListener('submit', e => {
+getElement('form').addEventListener('submit', e => {
   e.preventDefault();
   const name = nameInput.value,
         value = valueInput.value,
@@ -291,7 +291,7 @@ get('form').addEventListener('submit', e => {
     errModal.classList.add('open');
   } else {
     Store.updatePlayerData(player);
-    alertMessage('success', 'New player added', get('header'));
+    alertMessage('success', 'New player added', getElement('header'));
   };
   
   ui.clearInputFields();
@@ -305,15 +305,15 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // Delete Warning Modal
-get('clear-btn').addEventListener('click', () => {
+getElement('clear-btn').addEventListener('click', () => {
   deleteWarning.classList.add('open');
   modalBg();
 });
-get('cancel-delete').addEventListener('click', () => {
+getElement('cancel-delete').addEventListener('click', () => {
   modalBg();
   deleteWarning.classList.remove('open');
 });
-get('delete-all').addEventListener('click', () => {
+getElement('delete-all').addEventListener('click', () => {
   Store.deleteAllPlayerData();
   deleteWarning.classList.remove('open');
   modalBg();
@@ -321,10 +321,10 @@ get('delete-all').addEventListener('click', () => {
 
 
 // Close Error Window
-get('err-close').addEventListener('click', () => errModal.classList.remove('open'));
+getElement('err-close').addEventListener('click', () => errModal.classList.remove('open'));
 
 // Close Edit Modal
-get('edit-close').addEventListener('click', () => {
+getElement('edit-close').addEventListener('click', () => {
   editModal.classList.remove('open');
   modalBg();
   const playerContainers = modalContent.querySelectorAll('.player-container');
@@ -346,7 +346,7 @@ for(let btn of editBtns) {
 };
 
 // close edit player modal (cancel edit)
-get('edit-close-btn').addEventListener('click', () => {
+getElement('edit-close-btn').addEventListener('click', () => {
   const playerContainer = editPlayerModalContent.querySelector('.player-container');
   editPlayerModalContent.removeChild(playerContainer);
   editPlayerModal.classList.remove('open');

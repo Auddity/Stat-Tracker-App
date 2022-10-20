@@ -1,7 +1,7 @@
-import get from '../util/getElement.js';
+import { getElement } from '../util/getElement.js';
 import { getYardage } from '../util/getCourse.js';
 
-const gridDisplay = get('grid-display');
+const gridDisplay = getElement('grid-display');
 
 const createInputCell = () => {
   const scoreInputEl = document.createElement('input');
@@ -28,6 +28,9 @@ const createDisplayCell = (y, x) => {
   if(y === 5 && x === 19) cellEl.textContent = 'IN';
   if(y === 5 && x === 20) cellEl.textContent = 'TOT'
   gridDisplay.appendChild(cellEl);
+
+  // Populate Yardage from API
+  
 }
 
 const createLabelRow = x => {
@@ -69,3 +72,10 @@ const createGrid = () => {
 }
 
 export default createGrid;
+
+
+getYardage();
+// Populate Yardage
+const populateYardage = (x, y) => {
+  
+}

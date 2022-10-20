@@ -1,11 +1,11 @@
-import get from "../util/getElement.js";
+import { getElement } from "../util/getElement.js";
 import createGrid from "../util/golfDisplay.js";
 import UI from "../util/golfUI.js";
 
 window.document.addEventListener('DOMContentLoaded', createGrid);
 
-const nameInput = get('golfer-name');
-const teeInput = get('tee-box');
+const nameInput = getElement('golfer-name');
+const teeInput = getElement('tee-box');
 
 class Golfer {
   constructor(name, tee, score, handicap) {
@@ -46,7 +46,7 @@ class Store {
 }
 
 // Event Listeners
-get('form').addEventListener('submit', e => {
+getElement('form').addEventListener('submit', e => {
   e.preventDefault();
   const name = nameInput.value;
   const tee = teeInput.value;

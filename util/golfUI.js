@@ -1,8 +1,8 @@
-import get from "./getElement.js";
+import { getElement } from "./getElement.js";
 import alertMessage from "./alerts.js";
 
-const nameInput = get('golfer-name');
-const teeInput = get('tee-box');
+const nameInput = getElement('golfer-name');
+const teeInput = getElement('tee-box');
 
 // UI (display)
 export default class UI {
@@ -18,7 +18,7 @@ export default class UI {
       alertMessage(
         'success', 
         'Foursome is complete', 
-        get('header'));
+        getElement('header'));
     } else {
       for(let el of golfers) {
         if(el.textContent === '') {

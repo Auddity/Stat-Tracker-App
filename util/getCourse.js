@@ -13,7 +13,7 @@ const getCourseDetails = async () => {
 export const getYardage = async (x, y) => {
   const courseData = await getCourseDetails();
   let yards = courseData[0].yardages.mens;
-  // console.log(yards);
+  console.log(yards);
   return yards;
 }
 
