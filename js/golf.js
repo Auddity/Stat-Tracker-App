@@ -8,11 +8,11 @@ const nameInput = get('golfer-name');
 const teeInput = get('tee-box');
 
 class Golfer {
-  constructor(name, score, handicap, tee) {
+  constructor(name, tee, score, handicap) {
     this.name = name;
+    this.tee = tee;
     this.score = score;
     this.handicap = handicap;
-    this.tee = tee;
   }
 }
 
@@ -25,6 +25,7 @@ class Store {
   static addGolferData(golfer) {
     const golferData = {
       name:golfer.name,
+      tee:golfer.tee,
       score:golfer.score,
       handicap:golfer.handicap
     }
@@ -52,6 +53,6 @@ get('form').addEventListener('submit', e => {
   const golfer = new Golfer(name, tee);
   const ui = new UI;
 
-  name === '' || tee === '' ? alert("enter a player's name") : Store.updateGolfersData(golfer), ui.updateDom();
-  ui.updateDom();
+  name === '' || tee === '' ? alert("enter a player's name and tee box") : Store.updateGolfersData(golfer), ui.updateDom();
+  // ui.updateDom();
 });

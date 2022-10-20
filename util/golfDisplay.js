@@ -1,4 +1,5 @@
 import get from '../util/getElement.js';
+import { getYardage } from '../util/getCourse.js';
 
 const gridDisplay = get('grid-display');
 
@@ -13,6 +14,7 @@ let holeOutNum = 1;
 let holeInNum = 10;
 const createDisplayCell = (y, x) => {
   const cellEl = document.createElement('div');
+  // Populate Hole Number
   cellEl.className = 'cell';
   if(y === 5) {
     cellEl.textContent = holeOutNum;

@@ -2,7 +2,7 @@
 
 This is a current **work in progress**.
 
-update -- 4/6/2022 11:56AM
+update -- 10/20/2022 3:07PM
 
 [Live Site](https://stat-tracker-app.vercel.app/)
 
@@ -22,6 +22,8 @@ It is also an ever expanding project, thus I'm learning to read my own code (rem
 
 ## Current Status
 #### Newest updates
+- Fix Tee Box Value in Constructor
+
 - Fix Hole Numbering (golf)
 
 - JS module for Alert messages
