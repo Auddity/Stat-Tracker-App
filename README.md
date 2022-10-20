@@ -2,7 +2,7 @@
 
 This is a current **work in progress**.
 
-update -- 10/20/2022 3:07PM
+update -- 10/20/2022 4:35PM
 
 [Live Site](https://stat-tracker-app.vercel.app/)
 
@@ -22,6 +22,8 @@ It is also an ever expanding project, thus I'm learning to read my own code (rem
 
 ## Current Status
 #### Newest updates
+- Added specified class names to cells for API data population
+
 - Fix Tee Box Value in Constructor
 
 - Fix Hole Numbering (golf)
@@ -29,8 +31,6 @@ It is also an ever expanding project, thus I'm learning to read my own code (rem
 - JS module for Alert messages
 
 - Input and display Golfers names.
-
-- Golf Scorecard framework built(mobile view); `json` file with course data(Maplehurst);
 
 #### Past updates
 - Created a landing page. Refactored Sass where appropriate.
