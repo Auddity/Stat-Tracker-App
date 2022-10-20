@@ -1,4 +1,4 @@
-import { getElement } from '../util/getElement.js';
+import { getElement, getAll } from '../util/getElement.js';
 import { getYardage } from '../util/getCourse.js';
 
 const gridDisplay = getElement('grid-display');
@@ -29,8 +29,12 @@ const createDisplayCell = (y, x) => {
   if(y === 5 && x === 20) cellEl.textContent = 'TOT'
   gridDisplay.appendChild(cellEl);
 
-  // Populate Yardage from API
-  
+  // *** Add Class Names Here ***
+  if(y === 1) cellEl.classList = "cell yardage"
+  if(y === 2) cellEl.classList = "cell handicap"
+  if(y === 8) cellEl.classList = "cell par"
+
+  populateYardage(x, y)
 }
 
 const createLabelRow = x => {
@@ -75,7 +79,11 @@ export default createGrid;
 
 
 getYardage();
-// Populate Yardage
+// Populate Yardage From API
 const populateYardage = (x, y) => {
-  
+  const cells = getAll('.yardage')
+  const cellsArray = Array.from(cells);
+  cellsArray.forEach(cell => {
+     cell.textContent = 'yardage';
+  })
 }
