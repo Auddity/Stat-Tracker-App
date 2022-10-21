@@ -54,5 +54,4 @@ getElement('form').addEventListener('submit', e => {
   const ui = new UI;
 
   name === '' || tee === '' ? alert("enter a player's name and tee box") : Store.updateGolfersData(golfer), ui.updateDom();
-  // ui.updateDom();
 });

@@ -1,19 +1,20 @@
-const url = './api/courses.json';
+const URL = './api/courses.json';
 
-const getCourseDetails = async () => {
+const getCourseData = async () => {
   try {
-    const res = await fetch(url);
-    const data = await res.json();
-    return data;
+    const data = await fetch(URL);
+    const res = await data.json();
+    return res;
   } catch(err) {
     console.log(err)
   }
 }
 
-export const getYardage = async (x, y) => {
-  const courseData = await getCourseDetails();
-  let yards = courseData[0].yardages.mens;
-  console.log(yards);
-  return yards;
+// When I determine if details will be parsed in this module or elsewhere REMEMBER to update my Obsidian note "Gotcha With Using Modules"
+export const courseDetails = async () => {
+  const courseData = await getCourseData();
+  const mensYards = courseData.courses[0].yardages.mens;
+  const ladiesYards = courseData.courses[0].yardages.ladies;
+  return courseData
 }
 

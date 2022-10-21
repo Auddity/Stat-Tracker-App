@@ -1,5 +1,5 @@
 import { getElement, getAll } from '../util/getElement.js';
-import { getYardage } from '../util/getCourse.js';
+import { courseDetails } from '../util/getCourse.js';
 
 const gridDisplay = getElement('grid-display');
 
@@ -42,7 +42,7 @@ const createDisplayCell = (y, x) => {
   if(y === 8 && x === 19) cellEl.setAttribute('id', 'totalInPar')
   if(y === 8 && x === 20) cellEl.setAttribute('id', 'totalPar')
 
-  populateCourseData()
+  // populateCourseData()
 }
 
 const createLabelRow = x => {
@@ -86,14 +86,14 @@ const createGrid = () => {
 export default createGrid;
 
 
-getYardage();
-// Populate Yardage From API
-
-const populateCourseData = () => {
+const populateCourseData = async () => {
+  const { courses } = await courseDetails();
+  // console.log(courseData);
   // Yardage
   const yardageCells = getAll('.yardage')
-  yardageCells.forEach(cell => {
-     cell.textContent = 'yardage';
+  yardageCells.forEach((cell, i) => {
+    // cell.textContent = `${mensYards[i]}`;
+    cell.textContent = `${courses[0].yardages.mens[i]}`;
   })
 
   // Handicap
@@ -108,5 +108,7 @@ const populateCourseData = () => {
     cell.textContent = 'par'
   })
 }
+
+populateCourseData();
 
 // Populate Handicap From API
