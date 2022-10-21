@@ -30,11 +30,19 @@ const createDisplayCell = (y, x) => {
   gridDisplay.appendChild(cellEl);
 
   // *** Add Class Names Here ***
-  if(y === 1) cellEl.classList = "cell yardage"
-  if(y === 2) cellEl.classList = "cell handicap"
-  if(y === 8) cellEl.classList = "cell par"
+  if(y === 1 && x !== 9 && x !== 19 && x!== 20) cellEl.classList = "cell yardage"
+  if(y === 2 && x !== 9 && x !== 19 && x !== 20) cellEl.classList = "cell handicap"
+  if(y === 8 && x !== 9 && x !== 19 && x !== 20) cellEl.classList = "cell par"
 
-  populateYardage(x, y)
+  // *** Set Id's here ***
+  if(y === 1 && x === 9) cellEl.setAttribute('id', 'totalOutYardage')
+  if(y === 1 && x === 19) cellEl.setAttribute('id', 'totalInYardage')
+  if(y === 1 && x === 20) cellEl.setAttribute('id', 'totalYardage')
+  if(y === 8 && x === 9) cellEl.setAttribute('id', 'totalOutPar')
+  if(y === 8 && x === 19) cellEl.setAttribute('id', 'totalInPar')
+  if(y === 8 && x === 20) cellEl.setAttribute('id', 'totalPar')
+
+  populateCourseData()
 }
 
 const createLabelRow = x => {
@@ -80,10 +88,25 @@ export default createGrid;
 
 getYardage();
 // Populate Yardage From API
-const populateYardage = (x, y) => {
-  const cells = getAll('.yardage')
-  const cellsArray = Array.from(cells);
-  cellsArray.forEach(cell => {
+
+const populateCourseData = () => {
+  // Yardage
+  const yardageCells = getAll('.yardage')
+  yardageCells.forEach(cell => {
      cell.textContent = 'yardage';
   })
+
+  // Handicap
+  const handicapCells = getAll('.handicap');
+  handicapCells.forEach(cell => {
+    cell.textContent = 'handicap';
+  });
+
+  // Par
+  const parCells = getAll('.par');
+  parCells.forEach(cell => {
+    cell.textContent = 'par'
+  })
 }
+
+// Populate Handicap From API
