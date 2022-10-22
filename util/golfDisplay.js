@@ -85,7 +85,7 @@ const createGrid = () => {
 
 export default createGrid;
 
-
+// Populate Course Data from API
 const populateCourseData = async () => {
   const { courses } = await courseDetails();
   // console.log(courseData);
@@ -98,17 +98,15 @@ const populateCourseData = async () => {
 
   // Handicap
   const handicapCells = getAll('.handicap');
-  handicapCells.forEach(cell => {
-    cell.textContent = 'handicap';
+  handicapCells.forEach((cell, i) => {
+    cell.textContent = `${courses[0].handicaps.mens[i]}`;
   });
 
   // Par
   const parCells = getAll('.par');
-  parCells.forEach(cell => {
-    cell.textContent = 'par'
+  parCells.forEach((cell, i) => {
+    cell.textContent = `${courses[0].pars[i]}`
   })
 }
 
 populateCourseData();
-
-// Populate Handicap From API
