@@ -2,7 +2,7 @@
 
 This is a current **work in progress**.
 
-update -- 10/24/2022 2:49PM
+update -- 10/24/2022 3:50PM
 
 [Live Site](https://stat-tracker-app.vercel.app/)
 
@@ -22,6 +22,8 @@ It is also an ever expanding project, thus I'm learning to read my own code (rem
 
 ## Current Status
 #### Newest updates
+- Fetch stored players and add to DOM on page load
+
 - Converted TeeBox from text to option
 
 - Populated Yardage, Handicap, & Par from `json`
@@ -43,6 +45,11 @@ It is also an ever expanding project, thus I'm learning to read my own code (rem
 - Calculate Imported Yardage & Par Totals, Display
 
 - Calculate score inputs and display Totals
+
+- When getting golfers from storage
+  - ask for new foursome?
+  - have ability to search and get golfers data then add it to the DOM?  
+  - Add new player?
 
 - Add success/error message after submission (football).
 - Change DOM population from a page reload (football).

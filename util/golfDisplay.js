@@ -88,11 +88,9 @@ export default createGrid;
 // Populate Course Data from API
 const populateCourseData = async () => {
   const { courses } = await courseDetails();
-  // console.log(courseData);
   // Yardage
   const yardageCells = getAll('.yardage')
   yardageCells.forEach((cell, i) => {
-    // cell.textContent = `${mensYards[i]}`;
     cell.textContent = `${courses[0].yardages.mens[i]}`;
   })
 

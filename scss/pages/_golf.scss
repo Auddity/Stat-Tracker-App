@@ -33,6 +33,15 @@
           writing-mode: sideways-lr;
           letter-spacing: 1px;
         }
+
+        &.scoreInput {
+          text-align: center;
+
+          &:focus {
+            outline: none;
+            background-color: rgba(0, 255, 0, 0.568);
+          }
+        }
       }
     }
   }

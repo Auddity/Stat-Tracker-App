@@ -1,8 +1,6 @@
-import { getElement } from "../util/getElement.js";
+import { getElement, getAll } from "../util/getElement.js";
 import createGrid from "../util/golfDisplay.js";
 import UI from "../util/golfUI.js";
-
-window.document.addEventListener('DOMContentLoaded', createGrid);
 
 const nameInput = getElement('golfer-name');
 const teeInput = getElement('tee-box');
@@ -17,7 +15,7 @@ class Golfer {
 }
 
 // Storage
-class Store {
+export default class Store {
   static getStoredGolfers() {
     return localStorage.getItem('golfers') ? JSON.parse(localStorage.getItem('golfers')) : [];
   }
@@ -54,4 +52,16 @@ getElement('form').addEventListener('submit', e => {
   const ui = new UI;
 
   name === '' || tee === '' ? alert("enter a player's name and tee box") : Store.updateGolfersData(golfer), ui.updateDom();
+
+  console.log(golfer);
+});
+
+window.document.addEventListener('DOMContentLoaded', () => {
+  createGrid();
+  const ui = new UI;
+  const storedGolfers = Store.getStoredGolfers();
+  ui.updateDOMfromStored(storedGolfers)
+
+  console.log(storedGolfers);
+  
 });

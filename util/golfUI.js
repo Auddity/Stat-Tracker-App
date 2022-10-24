@@ -4,6 +4,8 @@ import alertMessage from "./alerts.js";
 const nameInput = getElement('golfer-name');
 const teeInput = getElement('tee-box');
 
+
+
 // UI (display)
 export default class UI {
   updateDom() {
@@ -30,5 +32,18 @@ export default class UI {
 
     nameInput.value = '';
     teeInput.value = '';
+  }
+
+  updateDOMfromStored(storedGolfers) {
+    const golferOne = getElement('golfer1');
+    const golferTwo = getElement('golfer2');
+    const golferThree = getElement('golfer3');
+    const golferFour = getElement('golfer4');
+    const golferDisplays = [golferOne, golferTwo, golferThree, golferFour];
+
+    golferDisplays.forEach((display, i) => {
+      display.textContent = `${storedGolfers[i].name}`
+    })
+    console.log(storedGolfers);
   }
 };
