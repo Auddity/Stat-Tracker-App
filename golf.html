@@ -26,7 +26,22 @@
         </label>
         <label for="tee-box" class="form-control">
           <p class="header-para">enter players tee box</p>
-          <input type="text" id="tee-box">
+          <select id="tee-box" class="tee-box">
+            <option
+              value="red"
+            >
+              Red (forward tees, ladies)
+            </option>
+            <option
+              value="blue"
+              selected
+            >
+              Blue (regular tees, mens)
+            </option>
+            <option value="white">
+              White (championship tees)
+            </option>
+          </select>
         </label>
         <button type="submit" class="submit-btn">Submit Name & Tee Box</button>
       </form>

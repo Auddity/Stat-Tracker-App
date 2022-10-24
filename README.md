@@ -2,7 +2,7 @@
 
 This is a current **work in progress**.
 
-update -- 10/20/2022 4:35PM
+update -- 10/24/2022 2:49PM
 
 [Live Site](https://stat-tracker-app.vercel.app/)
 
@@ -22,25 +22,27 @@ It is also an ever expanding project, thus I'm learning to read my own code (rem
 
 ## Current Status
 #### Newest updates
+- Converted TeeBox from text to option
+
+- Populated Yardage, Handicap, & Par from `json`
+
 - Added specified class names to cells for API data population
 
 - Fix Tee Box Value in Constructor
 
+#### Past updates
 - Fix Hole Numbering (golf)
-
-- JS module for Alert messages
 
 - Input and display Golfers names.
 
-#### Past updates
+- JS module for Alert messages
+
 - Created a landing page. Refactored Sass where appropriate.
 
-- Allow half steps on number input & created module for getElement function.
-
-- Added Warning Modal for deleting ALL player data.
-
 ## Next Steps
-- Populate Yardage, Handicap, & Par from `json`
+- Calculate Imported Yardage & Par Totals, Display
+
+- Calculate score inputs and display Totals
 
 - Add success/error message after submission (football).
 - Change DOM population from a page reload (football).
@@ -54,6 +56,8 @@ Currently I'm working on golf scores.  Future features will include more sports:
 Build a database to store the data in.
 
 ## Misc Production Notes & Info 
+I had to remember that when using modules, that the aysnc function that is exported must be set to await, when inside another async function that populates the data received from the api module. (10/21/22)
+
 Something I thought would be simple turned out to be tricky.  Input a name and display it, when all are full have a warning say the foursome is full.  
   - I started with a regular `for..of` loop, but 'full' warning popped up even if just one display was full.
   - Having done a bunch of freeCodeCamp challenges recently that used the `every` method.
