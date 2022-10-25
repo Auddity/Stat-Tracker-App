@@ -1,4 +1,5 @@
 import { getElement, getAll } from "./getElement.js";
+import { populateCourseData } from "./golfDisplay.js";
 import alertMessage from "./alerts.js";
 
 const nameInput = getElement('golfer-name');
@@ -42,13 +43,5 @@ export default class UI {
     golferDisplays.forEach((display, i) => {
       display.textContent = `${storedGolfers[i].name}`
     })
-  }
-
-  yardAndParTotals() {
-    const yardageCellsValues = Array.from(getAll('.yardage'))
-    const parCellsValues = getAll('.par')
-
-    console.log(yardageCellsValues);
-    console.log(parCellsValues);
   }
 };

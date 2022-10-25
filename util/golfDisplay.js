@@ -59,7 +59,7 @@ const createLabelRow = x => {
   gridDisplay.appendChild(labelEl);
 }
 
-const createGrid = () => {
+export const createGrid = () => {
   let height = 21;
   let width = 8;
 
@@ -81,31 +81,30 @@ const createGrid = () => {
   }
 }
 
-export default createGrid;
-
 // Populate Course Data from API
-const populateCourseData = async () => {
+export const populateCourseData = async () => {
   const { courses } = await courseDetails();
   // Yardage
   const yardageCells = getAll('.yardage')
   yardageCells.forEach((cell, i) => {
     cell.textContent = `${courses[0].yardages.mens[i]}`;
-    cell.setAttribute('value', `${courses[0].yardages.mens[i]}`)
+    cell.setAttribute('data-value', `${courses[0].yardages.mens[i]}`)
   })
 
   // Handicap
   const handicapCells = getAll('.handicap');
   handicapCells.forEach((cell, i) => {
     cell.textContent = `${courses[0].handicaps.mens[i]}`;
-    cell.setAttribute('value', `${courses[0].handicaps.mens[i]}`)
+    cell.setAttribute('data-value', `${courses[0].handicaps.mens[i]}`)
   });
 
   // Par
   const parCells = getAll('.par');
   parCells.forEach((cell, i) => {
     cell.textContent = `${courses[0].pars[i]}`
-    cell.setAttribute('value', `${courses[0].pars[i]}`)
+    cell.setAttribute('data-value', `${courses[0].pars[i]}`)
   })
-}
 
-populateCourseData();
+  // IN, OUT, TOTAL
+  
+}

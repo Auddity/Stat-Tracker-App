@@ -1,5 +1,5 @@
 import { getElement, getAll } from "../util/getElement.js";
-import createGrid from "../util/golfDisplay.js";
+import { createGrid, populateCourseData } from "../util/golfDisplay.js";
 import UI from "../util/golfUI.js";
 
 const nameInput = getElement('golfer-name');
@@ -60,6 +60,7 @@ getElement('form').addEventListener('submit', e => {
 
 // TODO: On Blur add hole score to game total
 // TODO: Find way to assign score to Golfer object
+// Possibly using new Map()
 scoreInputs.forEach(input => {
   input.addEventListener('blur', e => {
     // const target = e.target;
@@ -69,10 +70,8 @@ scoreInputs.forEach(input => {
 
 window.document.addEventListener('DOMContentLoaded', () => {
   createGrid();
+  populateCourseData();
   const ui = new UI;
   const storedGolfers = Store.getStoredGolfers();
   ui.updateDOMfromStored(storedGolfers);
-  ui.yardAndParTotals();
-
-  console.log(storedGolfers);
 });
