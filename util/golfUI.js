@@ -1,10 +1,8 @@
-import { getElement } from "./getElement.js";
+import { getElement, getAll } from "./getElement.js";
 import alertMessage from "./alerts.js";
 
 const nameInput = getElement('golfer-name');
 const teeInput = getElement('tee-box');
-
-
 
 // UI (display)
 export default class UI {
@@ -44,6 +42,13 @@ export default class UI {
     golferDisplays.forEach((display, i) => {
       display.textContent = `${storedGolfers[i].name}`
     })
-    console.log(storedGolfers);
+  }
+
+  yardAndParTotals() {
+    const yardageCellsValues = Array.from(getAll('.yardage'))
+    const parCellsValues = getAll('.par')
+
+    console.log(yardageCellsValues);
+    console.log(parCellsValues);
   }
 };

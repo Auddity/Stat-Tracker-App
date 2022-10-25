@@ -4,13 +4,15 @@ import UI from "../util/golfUI.js";
 
 const nameInput = getElement('golfer-name');
 const teeInput = getElement('tee-box');
+const scoreInputs = getAll('.scoreInput');
 
 class Golfer {
-  constructor(name, tee, score, handicap) {
+  constructor(name, tee, score, handicap, gameScore) {
     this.name = name;
     this.tee = tee;
     this.score = score;
     this.handicap = handicap;
+    this.gameScore = gameScore;
   }
 }
 
@@ -56,12 +58,21 @@ getElement('form').addEventListener('submit', e => {
   console.log(golfer);
 });
 
+// TODO: On Blur add hole score to game total
+// TODO: Find way to assign score to Golfer object
+scoreInputs.forEach(input => {
+  input.addEventListener('blur', e => {
+    // const target = e.target;
+
+  })
+})
+
 window.document.addEventListener('DOMContentLoaded', () => {
   createGrid();
   const ui = new UI;
   const storedGolfers = Store.getStoredGolfers();
-  ui.updateDOMfromStored(storedGolfers)
+  ui.updateDOMfromStored(storedGolfers);
+  ui.yardAndParTotals();
 
   console.log(storedGolfers);
-  
 });

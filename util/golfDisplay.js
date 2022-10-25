@@ -41,8 +41,6 @@ const createDisplayCell = (y, x) => {
   if(y === 8 && x === 9) cellEl.setAttribute('id', 'totalOutPar')
   if(y === 8 && x === 19) cellEl.setAttribute('id', 'totalInPar')
   if(y === 8 && x === 20) cellEl.setAttribute('id', 'totalPar')
-
-  // populateCourseData()
 }
 
 const createLabelRow = x => {
@@ -92,18 +90,21 @@ const populateCourseData = async () => {
   const yardageCells = getAll('.yardage')
   yardageCells.forEach((cell, i) => {
     cell.textContent = `${courses[0].yardages.mens[i]}`;
+    cell.setAttribute('value', `${courses[0].yardages.mens[i]}`)
   })
 
   // Handicap
   const handicapCells = getAll('.handicap');
   handicapCells.forEach((cell, i) => {
     cell.textContent = `${courses[0].handicaps.mens[i]}`;
+    cell.setAttribute('value', `${courses[0].handicaps.mens[i]}`)
   });
 
   // Par
   const parCells = getAll('.par');
   parCells.forEach((cell, i) => {
     cell.textContent = `${courses[0].pars[i]}`
+    cell.setAttribute('value', `${courses[0].pars[i]}`)
   })
 }
 

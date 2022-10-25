@@ -2,7 +2,7 @@
 
 This is a current **work in progress**.
 
-update -- 10/24/2022 3:50PM
+update -- 10/25/2022 2:30PM
 
 [Live Site](https://stat-tracker-app.vercel.app/)
 
@@ -22,6 +22,8 @@ It is also an ever expanding project, thus I'm learning to read my own code (rem
 
 ## Current Status
 #### Newest updates
+- Assign value attribute to display cells.
+
 - Fetch stored players and add to DOM on page load
 
 - Converted TeeBox from text to option
@@ -30,16 +32,14 @@ It is also an ever expanding project, thus I'm learning to read my own code (rem
 
 - Added specified class names to cells for API data population
 
+#### Past updates
 - Fix Tee Box Value in Constructor
 
-#### Past updates
 - Fix Hole Numbering (golf)
 
 - Input and display Golfers names.
 
 - JS module for Alert messages
-
-- Created a landing page. Refactored Sass where appropriate.
 
 ## Next Steps
 - Calculate Imported Yardage & Par Totals, Display
